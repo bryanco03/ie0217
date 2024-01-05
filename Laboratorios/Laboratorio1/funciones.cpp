@@ -5,7 +5,7 @@ void mostrarMenu(){
     std::cout <<"\n ---MENU---\n";
     std::cout <<"1. Agregar empleados\n";
     std::cout <<"2. Listar empleados\n";
-    std::cout <<"3. Eliminar empleadp\n ";
+    std::cout <<"3. Eliminar empleado\n ";
     std::cout <<"4. Salir";
 
 }
@@ -66,7 +66,7 @@ void listarEmpleado(const Empleado  empleados[], int &numEmpleados){
     std::cout<<"---Lista de empleados\n";
 
     for (int i = 0; i < numEmpleados; i++){
-        std::cout<< "ID: " << empleados[i].id << ", Nombre: " << empleados[i].nombre << ", Salario: " << empleados[i].salario;
+        std::cout<< "\nID: " << empleados[i].id << ", Nombre: " << empleados[i].nombre << ", Salario: " << empleados[i].salario;
 
     }
 
