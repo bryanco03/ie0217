@@ -1,3 +1,14 @@
+/**
+ * @file funciones.cpp
+ * @author your name (you@domain.com)
+ * @brief funciones para el juego de adivinanza
+ * @version 0.1
+ * @date 2024-01-07
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "funciones.hpp"
 
 int generateRandomNumber(int inter[]) {
