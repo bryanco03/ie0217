@@ -5,31 +5,26 @@ int generateRandomNumber(int inter[]) {
 }
 
 void menu(){
-    cout << "---Menú---:" << endl;
+    cout << "---Menu---:" << endl;
     cout << "1. Jugar" << endl;
     cout << "2. Cambiar intervalo "<<endl; 
     cout << "3. Cambiar modo de juego" << endl;
     cout << "4. Salir" << endl;
-
-
-
 }
 
-void selecionarOpcion(int intervalo[], bool pistasDirectas){
+void selecionarOpcion(int intervalo[], bool* ptrPistasDirectas){
     int opcion;
-    cout << "Seleccione una opción: ";
+    cout << "Seleccione una opcion: ";
     cin >> opcion;
     switch (opcion){
     case 1:
-        cout << pistasDirectas<< endl;
-        jugar(intervalo,pistasDirectas);
+        jugar(intervalo,ptrPistasDirectas);
         break;
     case 2:
         cambiarIntervalo(intervalo);
         break;
     case 3:
-        pistasDirectas = cambiarModo(pistasDirectas);
-        cout << pistasDirectas<< endl;
+        cambiarModo(ptrPistasDirectas);
         break;
     case 4:
         exit(0);
@@ -42,7 +37,7 @@ void selecionarOpcion(int intervalo[], bool pistasDirectas){
     
 }
 
-void jugar(int intervalo[], bool pistasDirectas){
+void jugar(int intervalo[], bool* pistasDirectas){
 
     int numAdivinar = generateRandomNumber(intervalo);
     int num;
@@ -55,7 +50,7 @@ void jugar(int intervalo[], bool pistasDirectas){
         cout << "Intento #"<<intento +1 << endl << "Adivina el numero: ";
         cin >> num;
 
-        if (pistasDirectas){
+        if (*pistasDirectas){
 
             if (num == numAdivinar){
                 cout << "¡Has adivinado el numero!"<<endl;
@@ -73,8 +68,12 @@ void jugar(int intervalo[], bool pistasDirectas){
             }
         
         }
-        else if (!pistasDirectas){
-            if (abs(num - numAdivinar) > (intervalo[1] - intervalo[0]) / 4){
+        else if (!*pistasDirectas){
+            if(num == numAdivinar){
+                cout << "¡Has adivinado el numero!"<<endl;
+                return ;
+            }
+            else if (abs(num - numAdivinar) > (intervalo[1] - intervalo[0]) / 4){
                 cout << "Estas congelado"<< endl;
             }
             else if (abs(num - numAdivinar) > (intervalo[1] - intervalo[0]) / 6){
@@ -90,6 +89,7 @@ void jugar(int intervalo[], bool pistasDirectas){
             
         }
     }
+    cout << "Has perdido, el numero a adivinar es: "<< numAdivinar << endl;
 
 }
 
@@ -109,7 +109,7 @@ void cambiarIntervalo(int intervalo[]){
     }
 }
 
-bool cambiarModo(bool pistasDirectas){
+void cambiarModo(bool* pistasDirectas){
     int opcion;
     cout << pistasDirectas<< endl;
     cout <<"---Modos de juego---" << endl;
@@ -119,33 +119,19 @@ bool cambiarModo(bool pistasDirectas){
     cout << "Elige una opcion  ";
     cin >> opcion;
 
-    if (opcion == 1){
-        cout << "Modo cambiado a MAYOR O MENOR" << endl;
-        if (pistasDirectas){
-            return pistasDirectas;
+        if (opcion == 1){
+            *pistasDirectas = true;
+            cout << "Modo cambiado a MAYOR O MENOR"<<endl;
+            return;
         }
-        else{
-            return !pistasDirectas;
+        else if (opcion == 2){
+            *pistasDirectas = false;
+            cout << "Modo cambiado a FRIO O CALIENTE"<<endl;
+            return;
         }
-        cout << "Modo cambiado a MAYOR O MENOR" << endl;
-    }
-    else if (opcion == 2){
-        if (pistasDirectas){
-            return !pistasDirectas;
+        else if (opcion == 3){
+            return;
         }
-        else{
-            return pistasDirectas;
-        }
-        cout << "Modo cambiado a FRIO O CALIENTE" << endl;
-    }
-    else if (opcion == 3){
-        return pistasDirectas;
-    }
-    else{
-        cout <<"Error con la opcion ingresada";
-    }
-    
-    
 }
 
 

@@ -11,13 +11,13 @@ int generateRandomNumber(int inter[]);
 
 void menu();
 
-void selecionarOpcion(int intervalo[], bool pistasDirectas);
+void selecionarOpcion(int intervalo[], bool* pistasDirectas);
 
-void jugar(int intervalo[], bool pistasDirectas);
+void jugar(int intervalo[], bool* pistasDirectas);
 
 void cambiarIntervalo(int inter[]);
 
-bool cambiarModo(bool pistasDirectas);
+void cambiarModo(bool* pistasDirectas);
 
 
 
