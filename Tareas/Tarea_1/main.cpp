@@ -1,6 +1,6 @@
 /**
  * @file main.cpp
- * @author your name (you@domain.com)
+ * @author Bryan Cortés C22422
  * @brief Funcion main
  * @version 0.1
  * @date 2024-01-07
@@ -12,7 +12,11 @@
 using namespace std;
 
 
-
+/**
+ * @brief main() 
+ * 
+ * @return int 
+ */
 
 
 int main(){
@@ -29,10 +33,6 @@ int main(){
         menu();
         selecionarOpcion(intervalo, ptrPistasDirectas);
     }
-    
-
-
-    
     
     return 0;
 }
