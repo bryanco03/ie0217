@@ -1,6 +1,6 @@
 /**
  * @file funciones.cpp
- * @author your name (you@domain.com)
+ * @author Bryan Cortes 
  * @brief funciones para el juego de adivinanza
  * @version 0.1
  * @date 2024-01-07

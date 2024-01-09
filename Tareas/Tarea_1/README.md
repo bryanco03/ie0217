@@ -178,7 +178,27 @@ El puntero "this" es un puntero que solo está disponible dentro de las funcione
 
 25. ¿Investigue qué es un memory leak?
 
+---
+## Parte 2 Teorica
+---
 
+1. ¿Qué suelen contener las variables CC, CFLAGS, CXXFLAGS y LDFLAGS en un makefile?
+
+La variable CC suele contener el compilador el cual se va a utilizar en el MakeFile para generar el ejecutable.
+
+CFLAGS y CC++FLAGS contienen los flags que se pasaran al compilador, la primer variable se suele utilizar cuando se trabaja en C y la segunda es cuando se trabaja en C++
+
+
+LDFLAGS suele contener las dependencias a biblioteas externas que el programa tiene.
+
+2. ¿De qué se compone una regla en un Makefile?
+
+
+3. Defina qué es un target y cómo se relaciona con sus prerequisitos.
+4. ¿Para qué se utiliza la bandera -I, -c y -o del compilador gcc?
+5. ¿Cómo se definen y se utilizan las variables en un Makefile? ¿Qué utilidad tienen?
+6. ¿Qué utilidad tiene un @ en un Makefile?
+7. ¿Para qué se utiliza .PHONY en un Makefile?
 
 
 
