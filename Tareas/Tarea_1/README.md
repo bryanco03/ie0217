@@ -108,7 +108,14 @@ Este metodo devuelve una subcadena de caracteres dentro de la cadena original, e
 
 La principal diferecia entre el ciclo while y el do-while , es que en el while para ejecutar el contenido dentro de ello se tiene que cumplir la condicion asignada mientras que en el do-while el codigo es ejecutado al menos una vez sin que la condicion se cumpla.
 
-11. **¿Es permitido almacenar funciones en una estructura en C++? En el caso de los datos, ¿se pueden encapsular en miembros privados y p´ublicos dentro de una estructura? Explique su respuesta.**
+11. **¿Es permitido almacenar funciones en una estructura en C++? En el caso de los datos, ¿se pueden encapsular en miembros privados y públicos dentro de una estructura? Explique su respuesta.**
+
+De manera directa no es permitido, lo que se puede es almacenar en el struct un puntero el cual apunte a la funcion para luego tener acceso a esta.
+
+En C++, puedes agrupar datos en estructuras y clases, y controlar su acceso mediante los conceptos de miembros públicos y privados. La principal diferencia entre una estructura y una clase en C++ es que, por defecto, los miembros de una estructura son públicos, lo que significa que pueden ser accedidos desde fuera de la estructura, mientras que los miembros de una clase son privados, lo que significa que solo pueden ser accedidos desde dentro de la clase. Sin embargo, puedes especificar explícitamente la visibilidad de los miembros utilizando las palabras clave public y private tanto en estructuras como en clases.
+
+
+
 
 12. **Explique por qué es útil y común dividir el código en archivos .hpp, .cpp y main.cpp en C++. Describa el propósito específico de cada tipo de archivo.**
 
@@ -133,7 +140,61 @@ Se conoce como Type Casting a la conversion de de un tipo de variable a otra, pu
 
 
 
-14. ¿Por qué la sentencia goto no es recomendable en programación moderna? Mencione ejemplos de cómo se pueden lograr los mismos resultados sin el uso de goto.
+14. **¿Por qué la sentencia goto no es recomendable en programación moderna? Mencione ejemplos de cómo se pueden lograr los mismos resultados sin el uso de goto**.
+
+El goto es una intruccion primitiva, en el cual se salta codigo el cual hace que sea imposible saber  la secuencia de instrucciones que se llego a cierto punto haciendo que el codigo tenga una estructura de control de flujo compleja e incomprensible, haciendolo mas ilegible y dificil de dar mantenimiento.
+
+algunos ejemplos los cuales se pueden lograr los mismos resultados sin el uso de goto son :
+
+- Bucles
+
+Con goto
+ ```
+    int i = 0;
+start:
+    if (i >= 10) goto end;
+    cout << i << endl;
+    i++;
+    goto start;
+end:
+
+```
+
+sin goto
+
+ ```
+int i = 0;
+while (i < 10) {
+    cout << i << endl;
+    i++;
+}
+```
+- Manejo de errores
+
+
+Con goto
+ ```
+if (errorCondition) goto error;
+// ...
+error:
+    // Manejo de errores
+
+```
+
+sin goto
+
+ ```
+ if (errorCondition) {
+    // Manejo de errores
+}
+else {
+    // ...
+}
+
+```
+
+
+
 
 15. **¿Donde y cómo se guardan las variables que se crean en C++? Explique la diferencia entre el almacenamiento de variables locales y globales.** 
 
@@ -157,6 +218,10 @@ Cuando un puntero apunta a un arreglo, este apunta al primer elemento, al subind
 
 18. Explique para qué son empleados los punteros dobles en C++. Proporcione ejemplos de situaciones en las que los punteros dobles son necesarios o beneficiosos.
 
+Un puntero doble es un puntero que apunta a otro puntero, son empleados para manejar memoria dinamica, trabajar con matrices, como argumento en funciones que modifican punteros, los cuales llegan a ser muy utiles para cuando se requieren trabajar con estructurass de datos complejas.
+
+
+
 19. **¿Cuál es la diferencia entre un break y un continue en los bucles de C++?**
 
 El break termina inmediatamente el bucle, mientras que continue omite la iteracion actual, pero no termina el bucle.
@@ -170,13 +235,27 @@ El break termina inmediatamente el bucle, mientras que continue omite la iteraci
 El puntero "this" es un puntero que solo está disponible dentro de las funciones miembro no estáticas de un tipo class, struct o union. Este puntero apunta al objeto para el que se ha llamado a la función miembro. [2]
 
 
-22. ¿Qué es un puntero nullptr?
+22. **¿Qué es un puntero nullptr?**
+
+representa un valor de puntero nulo en C++. Se utiliza para indicar que un identificador de objeto, un puntero interno o un puntero nativo no apunta a ningún objeto en particular.[4]
 
 23. ¿Cuál es la diferencia entre un arreglo y una lista en C++?
 
+En C++, un arreglo es una estructura de datos que almacena elementos del mismo tipo en memoria de forma contigua, con un tamaño fijo que se determina en tiempo de compilación y no puede cambiar dinámicamente, por otro al referirse a la clase list de la biblioteca estandar de C++ la cual es una plantilla de clase de contenedores de secuencias que mantienen sus elementos en disposición lineal y permiten realizar inserciones y eliminaciones de manera eficiente en cualquier ubicación de la secuencia[4] y tambien se puede referir a lista enlazada, que es una estructura de datos dinámica que no requiere un tamaño fijo y puede crecer o reducirse según sea necesario.
+
 24. ¿Qué es una función prototipo?
 
+Una función prototipo es una declaración anticipada de una función que incluye su tipo de retorno, nombre y lista de parámetros, pero no su implementación completa.
+
 25. ¿Investigue qué es un memory leak?
+
+Un memory leak (fuga de memoria) ocurre cuando un programa reserva memoria dinámicamente pero no la libera adecuadamente cuando ya no es necesaria. Esto puede llevar a un uso ineficiente de la memoria, lo que puede causar problemas de rendimiento o incluso la terminación inesperada del programa debido a la falta de memoria disponible. Para evitar memory leaks, es importante liberar la memoria asignada dinámicamente cuando ya no se necesite, siguiendo buenas prácticas de gestión de memoria y utilizando técnicas modernas como punteros inteligentes cuando sea posible.[5]
+
+
+
+
+
+
 
 ---
 ## Parte 2 Teorica
@@ -193,12 +272,47 @@ LDFLAGS suele contener las dependencias a biblioteas externas que el programa ti
 
 2. ¿De qué se compone una regla en un Makefile?
 
+Una regla en u makefile indica como crear un objetivo, a partir de las dependencias y con comandos.
+
+Se compone de 
+- Target: es el objetivo, el cual es el nombre del archivo por el cual se desea generar por el makefile, suelen ser archivos ejecutales, objetos o otros tipos de archivos que sean producto de una compilacion o procesos similares
+
+- Dependencias: Son archivos los cuales son importantes para que la regla se pueda cumplir
+
+- Comandos: las instrucciones las cuales el makefile debe ejecutar parar producir el objetivo.
 
 3. Defina qué es un target y cómo se relaciona con sus prerequisitos.
+
+Es el archivo el cual se desea generar por medio del makefile nombre del archivo por el cual se desea generar por el makefile, suelen ser archivos ejecutales, objetos o otros tipos de archivos que sean producto de una compilacion o procesos similares
+
+Los prerequisitos son archivos los cuales deben existir para que se genere el archivo. 
+
+
 4. ¿Para qué se utiliza la bandera -I, -c y -o del compilador gcc?
+
+La bandera -I indica el path  de headers files que puedan estar en otro directorio.
+
+La bandera -c es para indicarle al compilador que solo realize el proceso de compilacion sin hacer la etapa de linker o enlazado
+
+La bandera -o es para indicar el nombre del ejecutable de salida generado por el compilador
+
+
 5. ¿Cómo se definen y se utilizan las variables en un Makefile? ¿Qué utilidad tienen?
+
+Las variables en el makefile se utilizan para almacenar nombres de archivos, flags de compilacion, comandos, directorios, ect. para hacer el makefile reutilizable y mas legible. Se definen de la siguiente manera:
+
+ ```
+    VARIABLE = valor
+```
+
 6. ¿Qué utilidad tiene un @ en un Makefile?
+
+Se emplea en un archivo Makefile para evitar que el comando que se ejecuta se imprima en la salida estándar.
+
+
 7. ¿Para qué se utiliza .PHONY en un Makefile?
+
+El :PHONY indica a Makefile que un objetivo no representa realmente un archivo con ese nombre. En lugar de eso, indica que el objetivo es una acción, una operación a realizar. Se utiliza ara evitar conflictos con archivos reales que puedan tener el mismo nombre que los objetivos del Makefile.[6]
 
 
 
@@ -217,7 +331,17 @@ LDFLAGS suele contener las dependencias a biblioteas externas que el programa ti
 [1] [Microsoft learn C++ standard library](https://learn.microsoft.com/es-es/cpp/standard-library/basic-string-class?view=msvc-170)
 
 
-[12 [Microsoft learn C++ This Pointer](https://learn.microsoft.com/es-es/cpp/cpp/this-pointer?view=msvc-170)
+[2] [Microsoft learn C++ This Pointer](https://learn.microsoft.com/es-es/cpp/cpp/this-pointer?view=msvc-170)
+
+[3] [Microsoft learn C++  nullptr](https://learn.microsoft.com/es-es/cpp/cpp/this-pointer?view=msvc-170)
+
+[4] [Microsoft learn C++ standard library](https://learn.microsoft.com/es-es/cpp/standard-library/list-class?view=msvc-170)
+
+
+[5] [Medium memory leak](https://medium.com/@rcampos.tapia/fugas-de-memoria-memory-leaks-una-fuga-que-se-puede-controlar-be39bdf096d5)
+
+
+[6] [GNU Makefile](https://www.gnu.org/software/make/manual/make.html#Phony-Targets)
 
 
 

@@ -38,6 +38,7 @@ void selecionarOpcion(int intervalo[], bool* ptrPistasDirectas){
         cambiarModo(ptrPistasDirectas);
         break;
     case 4:
+        cout << "Saliendo del programa...." << endl;
         exit(0);
         break;
     
@@ -84,15 +85,30 @@ void jugar(int intervalo[], bool* pistasDirectas){
                 cout << "¡Has adivinado el numero!"<<endl;
                 return ;
             }
-            else if (abs(num - numAdivinar) > (intervalo[1] - intervalo[0]) / 4){
+
+            /* Si la diferencia entre numero ingresado y el numero a adivinar
+               es mayor que un cuarto del intervalo, quiere decir estas lejos del numero
+            */
+            else if (abs(num - numAdivinar) > (intervalo[1] - intervalo[0]) / 4){ 
                 cout << "Estas congelado"<< endl;
             }
+            /* Si la diferencia entre numero ingresado y el numero a adivinar
+               es mayor que un sexto del intervalo pero menor a un cuarto del intervalo 
+               quiere decir estas un toque mas cerca del numero
+            */
             else if (abs(num - numAdivinar) > (intervalo[1] - intervalo[0]) / 6){
                 cout << "Estas frio"<< endl;
             }
+             /* Si la diferencia entre numero ingresado y el numero a adivinar
+               es mayor que un doceavo del intervalo pero menor a un sexto del intervalo 
+               quiere decir esta cerca del numero
+            */
+
             else if (abs(num - numAdivinar) > (intervalo[1] - intervalo[0]) / 12){
                 cout << "Estas caliente"<< endl;
             }
+             /*  Si no se cumplen las condiciones anteriores, quiere decir que estas muy cerca
+            */
             else{
                 cout << "Estas hirviendo"<< endl;
             }

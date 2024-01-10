@@ -1,36 +1,26 @@
-# Definición de variables
-CC = g++ # Compilador a utilizar
-CFLAGS = -std=c++11 -Wall # Opciones de compilación
-TARGET = adivina.exe # Nombre del ejecutable
-SRCS = main.cpp funciones.cpp # Archivos fuente
-OBJS = $(SRCS:.cpp=.exe) # Archivos objeto generados
+CXX = g++
+CXXFLAGS = -std=c++11 -Wall
+SRCDIR = src
+BINDIR = bin
+SOURCES = $(wildcard $(SRCDIR)/*.cpp)
+OBJECTS = $(SOURCES:$(SRCDIR)/%.cpp=$(BINDIR)/%.exe)
+EXECUTABLE = adivina
 
-# Regla por defecto: all
+
 all: build run
 
-# Regla para construir el ejecutable
-build: $(TARGET)
+build: $(EXECUTABLE)
 
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+$(BINDIR)/%.exe: $(SRCDIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Regla para compilar los archivos fuente a archivos objeto
-%.exe: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+$(EXECUTABLE): $(OBJECTS)
+	$(CXX) $(OBJECTS) -o $(EXECUTABLE)
 
-# Detección del sistema operativo
-ifeq ($(OS),Windows_NT)
-    # Comandos para limpiar la consola en Windows
-    CLEAN_COMMAND = del
-else
-	CLEAN_COMMAND = rm -f
-endif
-
-
-# Regla para limpiar los archivos generados
-clean:
-	$(CLEAN_COMMAND) $(OBJS) $(TARGET)
 
 # Regla para ejecutar el programa
 run:
-	./$(TARGET) 
+	./$(EXECUTABLE)
+
+clean:
+	del $(EXECUTABLE)
