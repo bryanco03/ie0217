@@ -14,11 +14,11 @@ Para correr el juego hay que seguir las siguientes indicaciones
 
 Si estas en Windows
  ```
-  cd .\ie0217\Tareas\Tarea_1\
+  cd .\ie0217\Tareas\TAREA_UNO\
 ```
 Si estas en linux
  ```
-  cd ie0217/Tareas/Tarea_1/
+  cd ie0217/Tareas/TAREA_UNO/
 
 ```
 
