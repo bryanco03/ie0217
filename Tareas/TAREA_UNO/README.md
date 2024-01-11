@@ -12,9 +12,19 @@ Para correr el juego hay que seguir las siguientes indicaciones
 
 2. Ponerse en el directorio Tarea_1
 
+Si estas en Windows
  ```
   cd .\ie0217\Tareas\Tarea_1\
 ```
+Si estas en linux
+ ```
+  cd ie0217/Tareas/Tarea_1/
+
+```
+
+
+
+
 3. Ejecutar el makefile (Asegurarse que se tenga instalado)
 
 Si estas en windows
