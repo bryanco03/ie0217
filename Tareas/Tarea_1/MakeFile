@@ -1,26 +1,51 @@
+# Se detecta el OS para ejecutar los comandos correctos.
+ifeq ($(OS), Windows_NT)
+	FILE_EXT = exe
+	CLEAN = del
+	VACIO = 
+	SRCDIR = src\$(VACIO)
+else
+	FILE_EXT = out
+	CLEAN = rm -f
+	SRCDIR = src/
+endif
+
+# Nombre del programa de salida
+TARGET = adivina.$(FILE_EXT)
+
+# Compilador de C++
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall
-SRCDIR = src
-BINDIR = bin
-SOURCES = $(wildcard $(SRCDIR)/*.cpp)
-OBJECTS = $(SOURCES:$(SRCDIR)/%.cpp=$(BINDIR)/%.exe)
-EXECUTABLE = adivina
 
+# Opciones de compilación
+CXXFLAGS = -Wall -std=c++11
 
+# Lista de archivos fuente
+SOURCES = $(SRCDIR)main.cpp $(SRCDIR)funciones.cpp
+
+# Lista de archivos objeto generados a partir de los archivos fuente
+OBJECTS = $(SOURCES:.cpp=.$(FILE_EXT))
+
+# Regla por defecto 
 all: build run
 
-build: $(EXECUTABLE)
-
-$(BINDIR)/%.exe: $(SRCDIR)/%.cpp
+# Regla para compilar los archivos fuente en archivos objeto.
+%.$(FILE_EXT): %.cpp 
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CXX) $(OBJECTS) -o $(EXECUTABLE)
+# Regla para compilar el programa a partir de los archivos objeto.
+$(TARGET): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJECTS)
 
+#  Regla build: hace la compilacion y genera el ejecutable.
+build: $(TARGET)
 
-# Regla para ejecutar el programa
-run:
-	./$(EXECUTABLE)
-
+# Regla para limpiar los archivos generados.
+.PHONY: clean
 clean:
-	del $(EXECUTABLE)
+	$(CLEAN) $(TARGET) $(OBJECTS)
+
+# Regla RUN  ejecuta el programa el programa
+run:
+	./$(TARGET)
+
+

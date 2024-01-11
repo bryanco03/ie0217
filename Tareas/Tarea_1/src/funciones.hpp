@@ -1,12 +1,14 @@
 /**
  * @file funciones.hpp
- * @author Byan Cortés C22422
- * @brief  Declaraciones de funciones para el juego de adivinanza
+ * 
+ * @author your name (you@domain.com)
+ * @brief 
  * @version 0.1
- * @date 2024-01-07
+ * @date 2024-01-10
  * 
- * @copyright Copyright (c) 2024
  * 
+ * @copyright Copyright (c) 2024 MIT license
+ *   
  */
 
 #ifndef FUNCIONES_HPP
