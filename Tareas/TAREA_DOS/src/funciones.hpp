@@ -17,6 +17,7 @@ void crearMaterialAudiovisual(MaterialOrdenado* material);
 
 void buscarMateriales(MaterialOrdenado* material);
 
+void eliminarMateriales(MaterialOrdenado* material);
 
 
 #endif

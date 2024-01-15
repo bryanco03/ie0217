@@ -78,3 +78,21 @@ void MaterialOrdenado::buscarMaterialTipos(bool esLectura, bool tipo){
     
 
 }
+
+void MaterialOrdenado::eliminarMaterial(bool esLectura, string titulo){
+    
+    if (esLectura){ 
+        auto it = remove_if(materialesLecturas.begin(), materialesLecturas.end(),[&titulo](MaterialLectura* material) {
+                return material->getTitulo() == titulo;
+            });
+        materialesLecturas.erase(it, materialesLecturas.end());
+    }
+    else if(!esLectura){
+        auto it = remove_if(materialesAudiovisuales.begin(), materialesAudiovisuales.end(),[&titulo](MaterialAudiovisual* material) {
+                return material->getTitulo() == titulo;
+            });
+        materialesAudiovisuales.erase(it, materialesAudiovisuales.end());
+    }
+
+    cout << "Material eliminado"<< endl;
+}

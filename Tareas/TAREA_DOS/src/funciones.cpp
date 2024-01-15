@@ -27,6 +27,7 @@ void selecionarOpcion(MaterialOrdenado* material){
         crearMateriales(material);    
         break;
     case 2:
+        eliminarMateriales(material);
         break;  
     case 3:
         buscarMateriales(material);
@@ -258,6 +259,42 @@ void buscarMateriales(MaterialOrdenado* material){
             cout << "Opcion desconocida"<< endl;
         }
     }
+
+}
+
+void eliminarMateriales(MaterialOrdenado* material){
+    int opcion;
+    bool esLectura;
+    string tituloEliminar;
+    while(true){
+        cout << "Grupo de Materiales"<<endl;
+        cout << "1. Lectura"<<endl;
+        cout << "2. Audiovisual"<<endl;
+        cout << "3. Atras"<<endl;
+        cout << "Ingrese el grupo del material a eliminar: "<<endl;
+        cin >> opcion;
+        if (opcion == 1){
+            cout << "Ingrese el titulo del material a eliminar: ";
+            cin >> tituloEliminar;
+            esLectura= true;
+            material->eliminarMaterial(esLectura, tituloEliminar);
+        }
+        else if (opcion == 2){
+            cout << "Ingrese el titulo del material a eliminar: ";
+            cin >> tituloEliminar;
+            esLectura= false;
+            material->eliminarMaterial(esLectura, tituloEliminar);
+        }
+        else if (opcion ==3){
+            return;
+        }
+        else{
+            cout << "Opcion desconocida"<< endl;
+        }
+
+    }
+
+
 
 }
 
