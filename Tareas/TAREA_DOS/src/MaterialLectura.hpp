@@ -8,6 +8,9 @@ using namespace std;
 class MaterialLectura{
     public:
         MaterialLectura(string titulo, string autor, string editorial, string genero, string estado, int numHojas, int precio, bool esLibro);
+        virtual void mostrarInfo();
+        string getTitulo();
+        bool getEslibro();
 
     protected:
         string titulo;

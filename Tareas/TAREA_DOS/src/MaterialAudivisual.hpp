@@ -7,12 +7,15 @@ using namespace std;
 
 class MaterialAudiovisual {
     public:
-        MaterialAudiovisual(string titulo, string autor, string editorial, string genero, string estado, int duracion, int precio, bool esPelicula);
+        MaterialAudiovisual(string titulo, string autor, string genero, string estado, int duracion, int precio, bool esPelicula);
+        string getTitulo();
+        bool getEsPelicula();
+
+        virtual void mostrarInfo();
     
     protected: 
         string titulo;
         string autor;
-        string editorial;
         string genero;
         string estado;
         int duracion;

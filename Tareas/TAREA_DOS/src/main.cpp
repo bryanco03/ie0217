@@ -1,10 +1,11 @@
 #include "funciones.hpp"
 
 int main(){
-
+    MaterialOrdenado biblioteca;
     while (true){
         menu();
-        selecionarOpcion();
-        return 0;
+        selecionarOpcion(&biblioteca);
+
     }
+    return 0;
 }

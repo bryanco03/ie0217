@@ -1,7 +1,7 @@
 #include "Libro.hpp"
 
 Libro::Libro(string titulo, string autor, string editorial, string genero, string estado, int numHojas, int precio, bool esLibro): 
-MaterialLectura(titulo, autor, editorial, genero, estado, numHojas, precio, true){}
+MaterialLectura(titulo, autor, editorial, genero, estado, numHojas, precio, esLibro){}
 
 
 void Libro::longuitudLibro(){

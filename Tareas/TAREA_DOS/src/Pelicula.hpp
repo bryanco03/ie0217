@@ -5,9 +5,9 @@
 
 class Pelicula : public MaterialAudiovisual{
     public: 
-        Pelicula(string titulo, string autor, string editorial, string genero, string estado, int duracion, int precio, bool esPelicula);
+        Pelicula(string titulo, string autor, string genero, string estado, int duracion, int precio, bool esPelicula);
         void duracionPelicula();
-        void mostrarInformacion();
+        void mostrarInfo();
 };
 
 

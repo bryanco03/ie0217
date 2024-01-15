@@ -9,10 +9,12 @@
 class MaterialOrdenado{
     public:
 
-        void agregarMaterialAudiovisual();
-        void agregarMaterialLectura();
+        void agregarMaterialAudiovisual(MaterialAudiovisual* material);
+        void agregarMaterialLectura(MaterialLectura* material);
+        void mostrarInformacionMateriales();
+        void buscarMaterialTitulo(string titulo);
+        void buscarMaterialTipos(bool esLectura, bool tipo);
 
-        
 
         ~MaterialOrdenado();
 

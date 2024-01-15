@@ -1,7 +1,7 @@
 #include "Pelicula.hpp"
 
-Pelicula::Pelicula(string titulo, string autor, string editorial, string genero, string estado, int duracion, int precio, bool esPelicula):
-MaterialAudiovisual(titulo, autor, editorial, genero, estado, duracion, precio, true){} 
+Pelicula::Pelicula(string titulo, string autor, string genero, string estado, int duracion, int precio, bool esPelicula):
+MaterialAudiovisual(titulo, autor, genero, estado, duracion, precio, true){} 
 
 void Pelicula::duracionPelicula(){
         if (duracion <= 90){
@@ -15,11 +15,10 @@ void Pelicula::duracionPelicula(){
     }
 }
 
-void Pelicula::mostrarInformacion(){
+void Pelicula::mostrarInfo(){
     cout <<"---INFORMACION DE LA PELICULA---" <<endl;
     cout << "Titulo: " << titulo <<endl;
     cout << "Autor: " << autor <<endl;
-    cout << "Editorial: " << editorial <<endl;
     cout << "Genero: " << genero <<endl;
     cout << "Precio: " << precio << " Colones" << endl;
     cout << "Duracion: " << duracion << " minutos" <<endl;
