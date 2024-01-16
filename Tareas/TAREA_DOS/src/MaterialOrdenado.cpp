@@ -80,19 +80,33 @@ void MaterialOrdenado::buscarMaterialTipos(bool esLectura, bool tipo){
 }
 
 void MaterialOrdenado::eliminarMaterial(bool esLectura, string titulo){
-    
-    if (esLectura){ 
-        auto it = remove_if(materialesLecturas.begin(), materialesLecturas.end(),[&titulo](MaterialLectura* material) {
-                return material->getTitulo() == titulo;
-            });
+    if (esLectura) {
+        auto it = remove_if(materialesLecturas.begin(), materialesLecturas.end(), [&titulo](MaterialLectura* material) {
+            if (material->getTitulo() == titulo) {
+                delete material; // Liberar la memoria del material
+                return true; // Indicar que se debe eliminar del vector
+            }
+            return false;
+        });
         materialesLecturas.erase(it, materialesLecturas.end());
-    }
-    else if(!esLectura){
-        auto it = remove_if(materialesAudiovisuales.begin(), materialesAudiovisuales.end(),[&titulo](MaterialAudiovisual* material) {
-                return material->getTitulo() == titulo;
-            });
+    } else {
+        auto it = remove_if(materialesAudiovisuales.begin(), materialesAudiovisuales.end(), [&titulo](MaterialAudiovisual* material) {
+            if (material->getTitulo() == titulo) {
+                delete material; // Liberar la memoria del material
+                return true; // Indicar que se debe eliminar del vector
+            }
+            return false;
+        });
         materialesAudiovisuales.erase(it, materialesAudiovisuales.end());
     }
+    cout << "Material eliminado" << endl;
+}
 
-    cout << "Material eliminado"<< endl;
+
+vector<MaterialAudiovisual*> MaterialOrdenado::getMaterialesAudiovisuales(){
+    return materialesAudiovisuales;
+}
+
+vector<MaterialLectura*> MaterialOrdenado::getMaterialesLecturas(){
+    return materialesLecturas;
 }

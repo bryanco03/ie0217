@@ -10,6 +10,7 @@ class MaterialAudiovisual {
         MaterialAudiovisual(string titulo, string autor, string genero, string estado, int duracion, int precio, bool esPelicula);
         string getTitulo();
         bool getEsPelicula();
+        int getPrecio();
 
         virtual void mostrarInfo();
     

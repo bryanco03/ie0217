@@ -14,3 +14,7 @@ string MaterialLectura::getTitulo(){
 bool MaterialLectura::getEslibro(){
     return esLibro;
 }
+
+int MaterialLectura::getPrecio(){
+    return precio;
+}

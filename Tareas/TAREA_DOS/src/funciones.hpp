@@ -2,12 +2,13 @@
 #define FUNCIONES_H
 
 #include "MaterialOrdenado.hpp"
+#include "MaterialPrecio.hpp"
 #include <iostream>
 using namespace std;
 
 void menu();
 
-void selecionarOpcion(MaterialOrdenado* material);
+void selecionarOpcion(MaterialOrdenado* material, MaterialPrecio* lista );
 
 void crearMateriales(MaterialOrdenado* material);
 

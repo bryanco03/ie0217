@@ -6,7 +6,7 @@
 #include <vector>
 #include "MaterialAudivisual.hpp"
 #include "MaterialLectura.hpp"
-
+#include <memory>
 class MaterialOrdenado{
     public:
 
@@ -16,12 +16,13 @@ class MaterialOrdenado{
         void buscarMaterialTitulo(string titulo);
         void buscarMaterialTipos(bool esLectura, bool tipo);
         void eliminarMaterial(bool esLectura, string titulo);
-
+        vector<MaterialAudiovisual*> getMaterialesAudiovisuales();
+        vector<MaterialLectura*> getMaterialesLecturas();
 
         ~MaterialOrdenado();
 
 
-    private:
+    protected:
         vector<MaterialAudiovisual*> materialesAudiovisuales;
         vector<MaterialLectura*> materialesLecturas;
 

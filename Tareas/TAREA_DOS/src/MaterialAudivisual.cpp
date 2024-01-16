@@ -14,3 +14,7 @@ string MaterialAudiovisual::getTitulo(){
 bool MaterialAudiovisual::getEsPelicula(){
     return esPelicula;
 }
+
+int MaterialAudiovisual::getPrecio(){ 
+    return precio;
+}

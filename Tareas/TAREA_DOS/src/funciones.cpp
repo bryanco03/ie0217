@@ -1,9 +1,11 @@
+#include <memory>
 #include "funciones.hpp"
 #include "MaterialOrdenado.hpp"
 #include "Libro.hpp"
 #include "Noticia.hpp"
 #include "Pelicula.hpp"
 #include "Podcast.hpp"
+#include "MaterialPrecio.hpp"
 void menu(){
 
     cout << "---Bienvenido---"<< endl;
@@ -15,13 +17,11 @@ void menu(){
     cout << "5. Salir"<< endl;
 }
 
-void selecionarOpcion(MaterialOrdenado* material){
+void selecionarOpcion(MaterialOrdenado* material, MaterialPrecio* lista){
 
     int opcion;
-    cout << "Ingrese una opcion";
+    cout << "Ingrese una opcion: ";
     cin >> opcion;
-
-
     switch (opcion){
     case 1:
         crearMateriales(material);    
@@ -33,6 +33,8 @@ void selecionarOpcion(MaterialOrdenado* material){
         buscarMateriales(material);
         break;
     case 4:
+        lista->cargarDatos(material);
+        lista->mostrarElementos();
         break;
     case 5:
         cout << "Saliendo del programa...."<< endl;
@@ -80,7 +82,7 @@ void crearMaterialLectura(MaterialOrdenado* material){
         cout <<"1. Libro"<< endl;
         cout <<"2. Noticia"<< endl;
         cout <<"3. Atras" << endl;
-        cout << "Ingrese una opcion";
+        cout << "Ingrese una opcion: ";
         cin >> tipoMaterialLectura;
         if (tipoMaterialLectura ==1){
             esLibro = true;
@@ -112,13 +114,13 @@ void crearMaterialLectura(MaterialOrdenado* material){
     cin >> estado;
     cout <<"Ingrese la cantidad de hojas: ";
     cin >> numHojas;
-    cout <<"Ingrese el precio";
+    cout <<"Ingrese el precio: ";
     cin >> precio;
 
     if (esLibro){
         cout << "Creando el  libro...." << endl;
+    
         Libro* libroAgregar = new Libro(titulo, autor, editorial, genero, estado, numHojas, precio, esLibro); 
-        cout << "Creando el  libro...." << endl;
         material->agregarMaterialLectura(libroAgregar);
         cout << "Libro creado correctamente" << endl;
     }

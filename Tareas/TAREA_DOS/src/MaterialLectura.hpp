@@ -11,6 +11,7 @@ class MaterialLectura{
         virtual void mostrarInfo();
         string getTitulo();
         bool getEslibro();
+        int getPrecio();
 
     protected:
         string titulo;
