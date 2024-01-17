@@ -1,3 +1,14 @@
+/**
+ * @file Noticia.cpp
+ * @author Bryan Cortés
+ * @brief Implemetacion de la clase Noticia
+ * @version 0.1
+ * @date 2024-01-16
+ * 
+ * @copyright Copyright (c) MIT LICENSE 2024
+ * 
+ */
+
 #include "Noticia.hpp"
 
 

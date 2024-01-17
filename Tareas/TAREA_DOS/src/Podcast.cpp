@@ -1,3 +1,14 @@
+/**
+ * @file Podcast.cpp
+ * @author Bryan Cortés 
+ * @brief Implementacion de la clase Podcast
+ * @version 0.1
+ * @date 2024-01-16
+ * 
+ * @copyright Copyright (c) MIT LICENSE 2024
+ * 
+ */
+
 #include "Podcast.hpp"
 
 

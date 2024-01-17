@@ -1,3 +1,14 @@
+/**
+ * @file Libro.cpp
+ * @author Bryan Cortés
+ * @brief Implementacion de la clase Libro
+ * @version 0.1
+ * @date 2024-01-16
+ * 
+ * @copyright Copyright (c) MIT LICENSE  2024
+ * 
+ */
+
 #include "Libro.hpp"
 
 Libro::Libro(string titulo, string autor, string editorial, string genero, string estado, int numHojas, int precio, bool esLibro): 

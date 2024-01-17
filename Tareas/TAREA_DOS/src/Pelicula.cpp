@@ -1,3 +1,13 @@
+/**
+ * @file Pelicula.cpp
+ * @author Bryan Cortés
+ * @brief Implementacion de la clase Pelicula
+ * @version 0.1
+ * @date 2024-01-16
+ * 
+ * @copyright Copyright (c) MIT LICENSE 2024
+ * 
+ */
 #include "Pelicula.hpp"
 
 Pelicula::Pelicula(string titulo, string autor, string genero, string estado, int duracion, int precio, bool esPelicula):

@@ -1,3 +1,16 @@
+/**
+ * @file funciones.cpp
+ * @author Bryan Cortés 
+ * @brief Funciones para el operamiento del programa
+ * @version 0.1
+ * @date 2024-01-16
+ * 
+ * @copyright Copyright (c) MIT LICENSE 2024
+ * 
+ */
+
+
+
 #include <memory>
 #include "funciones.hpp"
 #include "MaterialOrdenado.hpp"
@@ -6,6 +19,7 @@
 #include "Pelicula.hpp"
 #include "Podcast.hpp"
 #include "MaterialPrecio.hpp"
+
 void menu(){
 
     cout << "---Bienvenido---"<< endl;
@@ -101,7 +115,8 @@ void crearMaterialLectura(MaterialOrdenado* material){
 
     }
     string titulo, autor, editorial, genero, estado, infoAdicional;
-    int numHojas, precio; 
+    int numHojas, precio;
+
     cout <<"Ingrese el Titulo: ";
     cin >> titulo;
     cout <<"Ingrese el autor: ";
@@ -295,8 +310,5 @@ void eliminarMateriales(MaterialOrdenado* material){
         }
 
     }
-
-
-
 }
 

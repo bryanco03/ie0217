@@ -1,3 +1,14 @@
+/**
+ * @file MaterialOrdenado.cpp
+ * @author Bryan Cortes
+ * @brief Implementacion de la clase MaterialOrdenadp
+ * @version 0.1
+ * @date 2024-01-16
+ * 
+ * @copyright Copyright MIT LICENSE (c) 2024
+ * 
+ */
+
 #include "MaterialOrdenado.hpp"
 
 
@@ -20,16 +31,7 @@ void MaterialOrdenado::agregarMaterialLectura(MaterialLectura* material){
     materialesLecturas.push_back(material);
 }
 
-void MaterialOrdenado::mostrarInformacionMateriales(){
-    for (const auto& material : materialesAudiovisuales) {
-        material->mostrarInfo(); // Llamar al método mostrarInformacion de cada material
-        cout << endl;
-    }
-    for (const auto& material : materialesLecturas) {
-        material->mostrarInfo(); // Llamar al método mostrarInformacion de cada material
-        cout << endl;
-    }
-}
+
 
 void MaterialOrdenado::buscarMaterialTitulo(string titulo){
     bool resultadoEncontrado = false;
