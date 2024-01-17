@@ -38,6 +38,8 @@ class Podcast : public MaterialAudiovisual{
          */
         Podcast(string titulo, string autor, string genero, string estado, int duracion, int precio, bool esPelicula, string infoAdicional);
 
+
+
     protected :
         void duracionPodcast();
         void mostrarInfo();

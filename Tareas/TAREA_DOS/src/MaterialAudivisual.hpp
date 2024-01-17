@@ -67,6 +67,8 @@ class MaterialAudiovisual {
          */
 
         virtual void mostrarInfo();
+
+        virtual ~MaterialAudiovisual(){}
     
     protected: 
     /**
