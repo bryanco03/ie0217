@@ -16,7 +16,7 @@ MaterialAudiovisual::MaterialAudiovisual(string titulo, string autor, string gen
 titulo(titulo), autor(autor), genero(genero), estado(estado), duracion(duracion), precio(precio), esPelicula(esPelicula) {}
 
 void MaterialAudiovisual::mostrarInfo(){
-    cout << "hola" << endl;
+    cout << "Sin informacion" << endl;
 }
 
 string MaterialAudiovisual::getTitulo(){

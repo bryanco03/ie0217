@@ -59,6 +59,32 @@ class MaterialPrecio: public MaterialOrdenado {
          */
         vector<Elementos> listaElemento;
 
+
+        /**
+         * @brief swap() método de apoyo para el bubble sort, intercambia la posicion de los elementos 
+         * 
+         * @param a 
+         * @param b 
+         */
+
+
+        void swap(Elementos& a, Elementos& b);
+
+
+        /**
+         * @brief bubbleSort() ordena la lista de materiales con el precio en forma ascedente 
+         * 
+         */
+        void bubbleSort();
+
+        /**
+         * @brief  bubbleSortDescendente() ordena la lista de materiales con el precio en forma descendente
+         * 
+         */
+
+        void bubbleSortDescendente();
+
+
 };  
 
 #endif
