@@ -99,7 +99,7 @@ Un memory leak es cuando se asigna memoria dinamica,  pero no es liberada al fin
 
 Un puntero inteligente es un puntero el cual gestiona el manejo de memoria dinamica de manera dinamica de manera automatica, por lo cual los mismos se encargan en la liberacion de memoria  de manera segura.
 
-
+Cúal es la diferencia entr
 
 
 
@@ -125,11 +125,22 @@ El QuickSort se caracteriza por dividir la lista, comienza agarrando un pivote, 
 Su ventaja principal ante otros algoritmos es que su complejidad temporal promedio es O(n log(n) ), mientras que los demas suelen ser O(n^2)
 
 
-19. ¿Cúal es la diferencia entre un algoritmo de ordenamiento estable y uno inestable?
+19. ¿Cuál es la diferencia entre un algoritmo de ordenamiento estable y uno inestable?
 Proporcione ejemplos de cada uno.
 
-20. Hable sobre el algoritmo de ordenamiento ”Merge Sort”. ¿Cu´al es su complejidad
+Los algoritmos de ordenación estables son aquellos que preservan el orden relativo de los elementos que tienen valores iguales o claves iguales. Por otro lado, los algoritmos de ordenación inestables son aquellos que no garantizan el mantenimiento del orden relativo de los elementos con valores o claves iguales.
+
+Ejemplos de algoritmos estables son el Bubble sort y Insertion sort, los inestables son el quick sort y el heap sort [3].
+
+
+
+20. Hable sobre el algoritmo de ordenamiento ”Merge Sort”. ¿Cuál es su complejidad
 temporal y en qué situaciones es preferible su uso?
+
+El Merge Sort es un algoritmo recursivo que divide repetidamente el arreglo a la mitad hasta que cada subarreglo tenga solo un elemento (un arreglo con un solo elemento se considera ordenado). Luego, los subarreglos ordenados se fusionan en un solo arreglo ordenado[4].
+
+Su complejidad temporal es  O(n log n), lo cual lo hace muy eficiente y se utilza en tareas de  listas grandes, ya que mantiene un rendimiento constante incluso cuando el tamaño de la lista aumenta. Es recomendable utilizar Merge Sort cuando se requiere una ordenación estable y se puede utilizar un algoritmo que consume más memoria adicional.
+
 
 
 ## Referencias
@@ -138,4 +149,8 @@ temporal y en qué situaciones es preferible su uso?
 
 [2] [GeeksForGeeks](https://www.geeksforgeeks.org/templates-cpp/)
 
-[2] [GeeksForGeeks](https://www.geeksforgeeks.org/merge-sort/)
+[3] [FreeCodeCamp](https://www.freecodecamp.org/espanol/news/algoritmos-de-ordenacion-explicados-con-ejemplos-en-javascript-python-java-y-c/)
+
+
+
+[4] [GeeksForGeeks](https://www.geeksforgeeks.org/merge-sort/)

@@ -72,6 +72,8 @@ class MaterialLectura{
 
         int getPrecio();
 
+        virtual ~MaterialLectura(){}
+
     protected:
         /**
          * @brief Atributos de la clase

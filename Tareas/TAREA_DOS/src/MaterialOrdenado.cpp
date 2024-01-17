@@ -13,7 +13,6 @@
 
 
 MaterialOrdenado::~MaterialOrdenado(){
-    cout <<"La memoria ha sido liberada"<< endl;
     for (auto& material : materialesAudiovisuales) {
         delete material; // Liberar la memoria de cada material audiovisual
     }
