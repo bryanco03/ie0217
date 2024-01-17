@@ -15,7 +15,7 @@ MaterialLectura::MaterialLectura(string titulo, string autor, string editorial, 
 titulo(titulo), autor(autor), editorial(editorial), genero(genero), estado(estado), numHojas(numHojas), precio(precio), esLibro(esLibro){}
 
 void MaterialLectura::mostrarInfo(){
-    cout <<"Hola"<< endl;
+    cout <<"Sin Informacion"<< endl;
 }
 
 string MaterialLectura::getTitulo(){

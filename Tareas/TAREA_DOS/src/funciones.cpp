@@ -47,8 +47,7 @@ void selecionarOpcion(MaterialOrdenado* material, MaterialPrecio* lista){
         buscarMateriales(material);
         break;
     case 4:
-        lista->cargarDatos(material);
-        lista->mostrarElementos();
+        AscedenteDescedente(material, lista);
         break;
     case 5:
         cout << "Saliendo del programa...."<< endl;
@@ -156,7 +155,7 @@ void crearMaterialAudiovisual(MaterialOrdenado* material){
         cout <<"1. Pelicula"<< endl;
         cout <<"2. Podcast"<< endl;
         cout <<"3. Atras" << endl;
-        cout << "Ingrese una opcion";
+        cout << "Ingrese una opcion: ";
         cin >> tipoMaterialAudiovisual;
         if (tipoMaterialAudiovisual ==1){
             esPelicula = true;
@@ -216,7 +215,7 @@ void buscarMateriales(MaterialOrdenado* material){
         cout << "1. Titulo. "<< endl;
         cout << "2. Tipo de material. "<< endl;
         cout << "3. Atras." << endl;
-        cout << "Ingrese una opcion" << endl;
+        cout << "Ingrese una opcion: " << endl;
         cin >> opcion; 
         if (opcion==1){
             cout <<"Ingrese el titulo a buscar: ";
@@ -309,6 +308,32 @@ void eliminarMateriales(MaterialOrdenado* material){
             cout << "Opcion desconocida"<< endl;
         }
 
+    }
+}
+
+void AscedenteDescedente(MaterialOrdenado* material,MaterialPrecio* lista){
+    int opcionAscendenteDescendente;
+    while(true){
+        cout << "---Opciones para mostrar la lista de materiales--"<<endl;
+        cout << "1. Ascedente" << endl;
+        cout << "2. Descendente" << endl;
+        cout << "3. Atras" << endl;
+        cout << "Ingrese una opcion: "<< endl;
+        cin >> opcionAscendenteDescendente;
+        if (opcionAscendenteDescendente==1){
+            lista->cargarDatos(material);
+            lista->bubbleSort();
+        }
+        else if(opcionAscendenteDescendente ==2){
+            lista->cargarDatos(material);
+            lista->bubbleSortDescendente();
+        }
+        else if (opcionAscendenteDescendente ==3){
+            return ;
+        }
+        else{
+            cout << "opcion desconocida" <<endl;
+        }
     }
 }
 

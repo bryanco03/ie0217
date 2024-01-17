@@ -80,5 +80,15 @@ void buscarMateriales(MaterialOrdenado* material);
 
 void eliminarMateriales(MaterialOrdenado* material);
 
+/**
+ * @brief AscedenteDescediente() Muestra la lista de los materiales de forma ascedente o descendente, como el usuario lo quiera
+ * 
+ * 
+ * @param material Puntero de un objeto creado a partir de la clase MaterialOrden.
+ * @param lista Puntero a la clase MaterialPrecio
+ */
+
+
+void AscedenteDescedente(MaterialOrdenado* material,MaterialPrecio* lista);
 
 #endif

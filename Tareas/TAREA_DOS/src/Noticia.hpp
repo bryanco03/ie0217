@@ -25,7 +25,7 @@
 class Noticia : public MaterialLectura{
     public:
     /**
-     * @brief Constructor de Libro, inicializa los atributos con los parametros
+     * @brief Constructor de Noticia, inicializa los atributos con los parametros
      * 
      * @param titulo string parametro que inicializa el atributo de titulo
      * @param autor string parametro que inicializa el atributo de autor

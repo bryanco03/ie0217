@@ -17,9 +17,7 @@ void MaterialPrecio::cargarDatos(MaterialOrdenado* material){
     listaElemento.clear();
     materialesAudiovisuales = material->getMaterialesAudiovisuales();
     materialesLecturas = material->getMaterialesLecturas();
-    cout <<"hola";
     for (auto& material : materialesLecturas){
-        cout <<"hola" ;
         Elementos elemento;
         elemento.precio = material->getPrecio();
         cout << elemento.precio <<endl;
@@ -31,7 +29,6 @@ void MaterialPrecio::cargarDatos(MaterialOrdenado* material){
         else{
             elemento.tipo =  "Noticia";
         }
-        cout << elemento.tipo <<endl;
         listaElemento.push_back(elemento);
 
     }
@@ -50,8 +47,6 @@ void MaterialPrecio::cargarDatos(MaterialOrdenado* material){
     }
 
 
-    mostrarElementos();
-
 }
 
 void MaterialPrecio::mostrarElementos(){
@@ -61,4 +56,34 @@ void MaterialPrecio::mostrarElementos(){
     } 
     cout<<"---------------------------" << endl;
     
+}
+
+void MaterialPrecio::swap(Elementos& a, Elementos& b){
+    Elementos temp = a;
+    a= b;
+    b= temp;
+}
+
+void MaterialPrecio::bubbleSort(){
+    int n = listaElemento.size();
+    for (int i = 0; i < n - 1; i++){
+        for (int j = 0; j < n -1; j++){
+            if (listaElemento[j].precio > listaElemento[j+1].precio){
+                swap(listaElemento[j], listaElemento[j+1]);
+            }
+        }
+    }
+    mostrarElementos();
+}
+
+void MaterialPrecio::bubbleSortDescendente(){
+    int n = listaElemento.size();
+    for (int i = 0; i < n - 1; i++){
+        for (int j = 0; j < n -1; j++){
+            if (listaElemento[j].precio < listaElemento[j+1].precio){
+                swap(listaElemento[j], listaElemento[j+1]);
+            }
+        }
+    }
+    mostrarElementos();
 }
