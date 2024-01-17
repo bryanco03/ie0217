@@ -1,5 +1,58 @@
 # Tarea 2
 
+## Ejecucion 
+
+Para correr el progrma hay que seguir las siguientes indicaciones:
+
+1. Clonar el repositorio
+
+ ```
+ git clone https://github.com/bryanco03/ie0217.git
+```
+
+2. Ponerse en el directorio Tarea_1
+
+Si estas en Windows
+ ```
+  cd .\ie0217\Tareas\TAREA_DOS\
+```
+Si estas en linux
+ ```
+  cd ie0217/Tareas/TAREA_DOS/
+
+```
+
+
+
+
+3. Ejecutar el makefile (Asegurarse que se tenga instalado)
+
+Si estas en windows
+ ```
+mingw32-make
+```
+si estas en linux
+
+ ```
+make
+```
+4. Disfruta del Programa
+
+5. Al finalizar puedes ejecutar el siguiente comando para eliminar los ejecutables realizados.
+
+Si estas en windows
+ ```
+mingw32-make clean
+```
+si estas en linux
+
+ ```
+make clean
+```
+
+
+
+
 ## Parte teórica
 
 1. **Conceptos Fundamentales: Define qué es la programación orientada a objetos y
