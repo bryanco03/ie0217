@@ -72,6 +72,11 @@ class MaterialLectura{
 
         int getPrecio();
 
+        /**
+         * @brief Destructor virtual de MaterialLectura
+         * 
+         */
+
         virtual ~MaterialLectura(){}
 
     protected:

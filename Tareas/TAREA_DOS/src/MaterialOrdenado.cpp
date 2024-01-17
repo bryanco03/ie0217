@@ -13,6 +13,7 @@
 
 
 MaterialOrdenado::~MaterialOrdenado(){
+    // Libera la memoria asignada
     for (auto& material : materialesAudiovisuales) {
         delete material; // Liberar la memoria de cada material audiovisual
     }
@@ -34,6 +35,7 @@ void MaterialOrdenado::agregarMaterialLectura(MaterialLectura* material){
 
 void MaterialOrdenado::buscarMaterialTitulo(string titulo){
     bool resultadoEncontrado = false;
+    // Buscar para los materiales audiovisuales
     for (const auto& material : materialesAudiovisuales) {
         if (material->getTitulo() == titulo){
             material->mostrarInfo();
@@ -41,6 +43,7 @@ void MaterialOrdenado::buscarMaterialTitulo(string titulo){
             resultadoEncontrado = true;
         }
     }
+    // Buscar para los materiales lecturas
     for (const auto& material : materialesLecturas) {
         if (material->getTitulo() == titulo){
             material->mostrarInfo();

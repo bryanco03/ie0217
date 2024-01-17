@@ -68,6 +68,11 @@ class MaterialAudiovisual {
 
         virtual void mostrarInfo();
 
+        /**
+         * @brief Destrutor virtual de Material Audioviual
+         * 
+         */
+
         virtual ~MaterialAudiovisual(){}
     
     protected: 
