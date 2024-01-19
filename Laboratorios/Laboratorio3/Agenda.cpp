@@ -1,5 +1,6 @@
 #include "Agenda.hpp"
 
+// agrega un contacto a la lista, se asegura que un contacto tenia el mismo telefono
 template <typename T>
 void Agenda<T>::agregarContacto(const Contacto<T>& contacto){
     typename std::list<Contacto<T>>::const_iterator it;
@@ -12,6 +13,7 @@ void Agenda<T>::agregarContacto(const Contacto<T>& contacto){
     contactos.push_back(contacto);
 }
 
+// Busca un  contacto  por el telefono y  lo elimina
 template <typename T>
 void Agenda<T>::eliminarContacto(const T& telefono){
     typename std::list<Contacto<T>>::const_iterator it;
@@ -23,6 +25,8 @@ void Agenda<T>::eliminarContacto(const T& telefono){
     }
     throw std::out_of_range("No se encuentra un contacto con ese numero");
 }
+
+// Muestra la lista de contactos
 
 template <typename T>
 void Agenda<T>::mostrarContacto() const{
