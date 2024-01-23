@@ -4,7 +4,8 @@
 #include<vector>
 #include <string>
 #include <complex>
-#include"OperacionBasica.hpp"
+#include <stdexcept>
+#include <limits>
 using namespace std;
 
 
@@ -17,8 +18,9 @@ class Matriz{
 
     Matriz(int filas, int columnas) : datos(filas, std::vector<T>(columnas)) {}
 
-    void pedirDatos(bool esComplejo);
-
+    void pedirDatos();
+    
+    void pedirDatosComplejos();
     Matriz<T> operator+(const Matriz<T>& matriz2);
 
     Matriz<T> operator-(const Matriz<T>& matriz2);

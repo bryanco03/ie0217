@@ -1,5 +1,6 @@
 #include "funciones.hpp"
-
+#include "Matriz.hpp"
+#include "ImprimirMatriz.hpp"
 void menu(){
         cout << "---Calculadora de matrices---" << endl;
         cout <<"Esta Calculadora permite trabajar con los siguientes tipos de numero"<<endl;
@@ -31,6 +32,10 @@ void procesarOpcion(){
     else if(opcion==2){
         Matriz<float> matriz;
         matriz.procesarOperacion("float");
+    }
+    else if(opcion==3){
+        Matriz<complex<double>> matriz;
+        matriz.procesarOperacion("complex");
     }
     else if (opcion ==4){
         exit(0);

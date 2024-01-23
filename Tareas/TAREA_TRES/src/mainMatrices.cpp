@@ -2,9 +2,7 @@
 #include "funciones.hpp"
 
 int main(){
-
     while(true){
-        
         menu();
         procesarOpcion();
 

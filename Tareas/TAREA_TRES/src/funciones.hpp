@@ -2,8 +2,8 @@
 #define FUNCIONES_HPP
 
 #include <iostream>
-#include "Matriz.hpp"
-#include"ImprimirMatriz.hpp"
+
+
 using namespace std;
 
 

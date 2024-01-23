@@ -61,4 +61,3 @@ Matriz<T> OperacionesBasicas<T>::multiplicacion(const Matriz<T>& matriz1, const 
     return resultado;
 }
 
-

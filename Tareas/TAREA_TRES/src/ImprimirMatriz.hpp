@@ -1,16 +1,19 @@
 #ifndef IMPRIMIRMATRIZ_HPP
 #define IMPRIMIRMATRIZ_HPP
+#include <iostream>
+#include <iomanip>
 
-#include "Matriz.hpp"
 
-template<typename T>
+template<class T>
 class ImprimirMatriz{
     public:
-        void mostrarMatriz(const Matriz<T>& matriz);
 
+        void mostrarMatriz(T matriz);
+        void mostrarMatrizCompleja(T Matriz);
 };
 
 
-#include "imprimirMatriz.cpp"
+
+#include"ImprimirMatriz.cpp"
 
 #endif
