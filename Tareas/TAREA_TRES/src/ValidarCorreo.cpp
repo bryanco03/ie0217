@@ -1,3 +1,13 @@
+/**
+ * @file ValidarCorreo.cpp
+ * @author Bryan Cortés
+ * @brief Implementacion de la clase ValidarCorreo
+ * @version 0.1
+ * @date 2024-01-22
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 #include "ValidarCorreo.hpp"
 
 bool ValidarCorreo::validar(std::string correo){

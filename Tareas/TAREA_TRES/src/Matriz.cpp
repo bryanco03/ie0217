@@ -1,3 +1,14 @@
+/**
+ * @file Matriz.cpp
+ * @author Bryan Cortés
+ * @brief Implementacion de la clase Matriz
+ * @version 0.1
+ * @date 2024-01-22
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 
 #include "Matriz.hpp"
 #include "OperacionCompleja.hpp"
@@ -86,7 +97,7 @@ Matriz<T> Matriz<T>::operator*(const Matriz<T>& matriz2){
 // }
 // template<>
 // Matriz<complex<double>> Matriz<complex<double>>::operator-(const Matriz<complex<double>>& matriz2){
-//     OperacionesComplejas restarComplejos;
+//         OperacionesComplejas restarComplejos;
 //     return restarComplejos.resta(*this, matriz2);
 // }
 // template<>
@@ -184,7 +195,7 @@ void Matriz<T>::procesarOperacion(string tipoDato){
             else if (tipoOperacion == "*"){
                 Matriz<float> resultado = matriz1 * matriz2;
                 mostrarResultados.mostrarMatriz(matriz1);
-                cout << "   *   "<< endl<< endl;
+                cout << "   *   "<< endl<<endl;
                 mostrarResultados.mostrarMatriz(matriz2);
                 cout << "   =   "<< endl << endl;
                 mostrarResultados.mostrarMatriz(resultado);
@@ -210,16 +221,29 @@ void Matriz<T>::procesarOperacion(string tipoDato){
                 throw invalid_argument("Se ingreso un tipo de dato invalido.");
             }
             if (tipoOperacion == "+"){
+
                 Matriz<complex<double>> resultado = matriz1 + matriz2;
+                mostrarResultado.mostrarMatrizCompleja(matriz1);
+                cout << "   +   "<< endl<<endl;
+                mostrarResultado.mostrarMatrizCompleja(matriz2);
+                cout << "   =   "<< endl << endl;
                 mostrarResultado.mostrarMatrizCompleja(resultado);
             }
             else if(tipoOperacion == "-"){
                 Matriz<complex<double>> resultado = matriz1 - matriz2;
-                resultado.mostrarMatriz();
+                mostrarResultado.mostrarMatrizCompleja(matriz1);
+                cout << "   -   "<< endl<<endl;
+                mostrarResultado.mostrarMatrizCompleja(matriz2);
+                cout << "   =   "<< endl << endl;
+                mostrarResultado.mostrarMatrizCompleja(resultado);
             }
             else if (tipoOperacion == "*"){
                 Matriz<complex<double>> resultado = matriz1 * matriz2;
-                resultado.mostrarMatriz();
+                mostrarResultado.mostrarMatrizCompleja(matriz1);
+                cout << "   *   "<< endl<<endl;
+                mostrarResultado.mostrarMatrizCompleja(matriz2);
+                cout << "   =   "<< endl << endl;
+                mostrarResultado.mostrarMatrizCompleja(resultado);
             }
         }
         catch(const std::exception& e){
@@ -228,18 +252,7 @@ void Matriz<T>::procesarOperacion(string tipoDato){
 
     }
 }
-template <typename T>
-void Matriz<T>::mostrarMatriz(){
-    for (size_t i = 0; i < datos.size(); ++i) {
-            for (size_t j = 0; j < datos[0].size(); ++j) {
-                cout << datos[i][j];
-                if (j < datos[0].size() - 1) {
-                    std::cout << " ";
-                }
-            }
-            cout << endl;
-    }
-}
+
 
 
 

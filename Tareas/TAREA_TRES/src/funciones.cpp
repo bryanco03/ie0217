@@ -1,3 +1,16 @@
+/**
+ * @file funciones.cpp
+ * @author Bryan Cortés
+ * @brief Implementacion de las funciones utilizadas en el programa
+ * @version 0.1
+ * @date 2024-01-22
+ * 
+ * @copyright Copyright (c) MIT LICENSE 2024
+ * 
+ */
+
+
+
 #include "funciones.hpp"
 #include "Matriz.hpp"
 #include "ImprimirMatriz.hpp"
@@ -18,6 +31,8 @@ void procesarOpcion(){
             cout  <<"Ingrese el con cual desear trabajar: ";
             cin >> opcion;
             if (cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 throw  invalid_argument("Se ingreso un tipo de dato invalido.");
             }
         } 
@@ -39,5 +54,8 @@ void procesarOpcion(){
     }
     else if (opcion ==4){
         exit(0);
+    }
+    else{
+        cout <<"Opcion desconocida"<< endl;
     }
 }
