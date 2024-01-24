@@ -12,7 +12,7 @@ endif
 
 # Nombre del programa de salida
 TARGET = matrices.$(FILE_EXT)
-#TARGETCORREO =  validarCorreos.$(FILE_EXT)
+TARGETCORREO =  validarCorreos.$(FILE_EXT)
 
 # Compilador de C++
 CXX = g++
@@ -23,15 +23,30 @@ CXXFLAGS = -Wall -std=c++11
 # Lista de archivos fuente
 
 SOURCES = $(SRCDIR)funciones.cpp $(SRCDIR)mainMatrices.cpp $(SRCDIR)OperacionCompleja.cpp 
-#SOURCESCORREO = $(SRCDIR)ValidarCorreo.cpp $(SRCDIR)mainValidarCorreo.cpp  
+SOURCESCORREO = $(SRCDIR)ValidarCorreo.cpp $(SRCDIR)mainValidarCorreo.cpp  
 
 
 # Lista de archivos objeto generados a partir de los archivos fuente
 OBJECTS = $(SOURCES:.cpp=.$(FILE_EXT))
 #OBJECTSCORREO = $(SOURCESCORREO:.cpp=.$(FILE_EXT))
 
-# Regla por defecto 
+# Regla por defecto (Matrices)
 all: build run
+
+# Regla para Correo
+correo: $(TARGETCORREO) runcorreo
+	
+# Regla para compilar Correo
+$(TARGETCORREO):
+	$(CXX) $(CXXFLAGS) -o $(TARGETCORREO) $(SOURCESCORREO)
+
+# Regla para correr correo
+runcorreo:
+	./$(TARGETCORREO)
+
+# regla limpiar archivos generados por correo 
+cleanCorreo:
+	$(CLEAN) $(TARGETCORREO)
 
 # Regla para compilar los archivos fuente en archivos objeto.
 %.$(FILE_EXT): %.cpp 

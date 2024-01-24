@@ -90,27 +90,6 @@ Matriz<T> Matriz<T>::operator*(const Matriz<T>& matriz2){
     return multiplicar.multiplicacion(*this, matriz2);
 }
 
-// template<>
-// Matriz<complex<double>> Matriz<complex<double>>::operator+(const Matriz<complex<double>>& matriz2){
-//     OperacionesComplejas sumarComplejos;
-//     return sumarComplejos.suma(*this, matriz2);
-// }
-// template<>
-// Matriz<complex<double>> Matriz<complex<double>>::operator-(const Matriz<complex<double>>& matriz2){
-//         OperacionesComplejas restarComplejos;
-//     return restarComplejos.resta(*this, matriz2);
-// }
-// template<>
-// Matriz<complex<double>> Matriz<complex<double>>::operator*(const Matriz<complex<double>>& matriz2){
-//     OperacionesComplejas multiplicarComplejos;
-//     return multiplicarComplejos.multiplicacion(*this, matriz2);
-// }
-
-
-
-
-
-
 
 template<typename T>
 void Matriz<T>::procesarOperacion(string tipoDato){
