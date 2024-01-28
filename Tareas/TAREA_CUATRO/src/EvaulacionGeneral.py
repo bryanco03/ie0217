@@ -1,28 +1,70 @@
 class EvaluacionGeneral:
+
+    """
+    Clase EvuluacionGeneral: le indica al usuario su puntuacion segun las alergias que ingreso
+    
+    """
+
+
+
     def __init__(self, tipos_de_alergias):
+
+
+        """
+        Inicializa una instacia de EvuluacionGeneral
+        
+        """
+
+
         self.tipos_de_alergias = tipos_de_alergias
 
     def calcular_puntuacion_general(self, alergias_evaluadas):
+        
+
+        """
+        Calcula la puntuacion de alergias del usuario segun las alergias que habia ingresado con anterioridad
+
+        Parámetro
+        - alergias_evaluadadas: lista con las alergias que ingresó el usuario
+
+        
+        Retona
+        _ puntuacion del usuario
+        
+        """
+
         puntuacion_general = sum(alergia.valor for alergia in alergias_evaluadas)
         return puntuacion_general
 
-    def imprimir_resultados(self, alergias_evaluadas, puntuacion_general):
+    def imprimir_resultados(self, alergias_evaluadas, puntuacion_general, alergias_sin_nombre,alergias_sin_valor):
+        
+        """"
+        Muestra  los resultados obtenidos en calcular_puntuacion_general(), asi como las alergias que se desconocen su nombre o valor
+        
+        """
+        
+        
         print(f"Puntuación general de alergias: {puntuacion_general}")
 
-        alergias_sin_nombre = [alergia for alergia in alergias_evaluadas if not self.tipos_de_alergias.buscar_alergia_por_valor(alergia.valor)]
-        if alergias_sin_nombre:
+
+        print("--Alergias Desconocidas--")
+
+        if alergias_sin_valor:
             print("Alergias sin nombre:")
             for alergia in alergias_sin_nombre:
-                print(f"Valor: {alergia.valor}")
+                print(f"Alergia: ----- , Valor: {alergia}")
 
-        valores_sin_nombre = [alergia.valor for alergia in alergias_evaluadas if not self.tipos_de_alergias.buscar_alergia_por_valor(alergia.valor)]
-        if valores_sin_nombre:
-            print("Valores sin nombre:")
-            for valor in valores_sin_nombre:
-                print(f"Valor: {valor}")
-
-        alergias_con_puntuacion_sin_nombre = [alergia.nombre for alergia in alergias_evaluadas if not self.tipos_de_alergias.buscar_alergia_por_valor(alergia.valor) and alergia.nombre]
-        if alergias_con_puntuacion_sin_nombre:
+        if alergias_sin_nombre:
             print("Alergias con puntuación pero sin nombre:")
-            for alergia in alergias_con_puntuacion_sin_nombre:
-                print(f"Alergia: {alergia}")
+            for valor in alergias_sin_nombre:
+                print(f"Alergia: {alergia} , Valor: -----")
+
+        # Calcular promedio de alergias y valores desconocidos
+        total_alergias = len(alergias_evaluadas)
+        total_desconocidos = len(alergias_sin_valor) + len(alergias_sin_nombre)
+        promedio_alergias = len(alergias_evaluadas) / (total_alergias + total_desconocidos)
+        promedio_desconocidos = total_desconocidos / (total_alergias + total_desconocidos)
+
+        print(f"Promedio de Alergias: {promedio_alergias:.2f}")
+        print(f"Promedio de Desconocidos: {promedio_desconocidos:.2f}")
+
