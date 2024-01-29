@@ -5,10 +5,13 @@ class Alergia:
     Clase que representa una alergia
 
     Atributos:
+
     - nombre: nombre de la alergia
+
     - valor: valor de la alergia dentro del programa
 
     Métodos:
+    
     - mostrar_alergias(): Muestra una lista de alergias preterminadas, y ademas se puede buscar una en especifico
 
     

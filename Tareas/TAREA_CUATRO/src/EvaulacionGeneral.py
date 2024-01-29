@@ -1,7 +1,7 @@
 class EvaluacionGeneral:
 
     """
-    Clase EvuluacionGeneral: le indica al usuario su puntuacion segun las alergias que ingreso
+    Clase EvauluacionGeneral: le indica al usuario su puntuacion segun las alergias que ingreso
     
     """
 
@@ -11,7 +11,7 @@ class EvaluacionGeneral:
 
 
         """
-        Inicializa una instacia de EvuluacionGeneral
+        Inicializa una instacia de EvauluacionGeneral
         
         """
 

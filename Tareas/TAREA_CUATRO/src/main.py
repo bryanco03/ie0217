@@ -3,6 +3,7 @@ from EvaulacionEspecifica import EvaluacionEspecifica
 from TiposAlergias import TiposDeAlergias
 from EvaulacionGeneral import EvaluacionGeneral
 
+import cProfile
 
 def main():
 
@@ -10,20 +11,22 @@ def main():
     Funcion Main, Se muestra el menú del programa, el usuario ingresa la opcion que desea y se ejecuta la opcion
     El programa cuenta con las siguientes opciones:
 
-    - Ingresar puntuación de alergias: El usuario ingresa su puntuacion en alergias y se le indica cuales alergias posee
-    segun la la lista de alergias preterminadas
+    - Ingresar puntuación de alergias: El usuario ingresa su puntuacion en alergias y se le indica cuales alergias posee segun la la lista de alergias preterminadas
 
-    - Ingresar tipos de alergias: El usuario puede ingresar las alergias por dos maneras, por nombre y valor o por nombre o valor,
-    las alergias ingresadas son añadidas a una lista de alergias del usuario la cual despues se realiza la evauluacion de la puntuacion del usuario
+    - Ingresar tipos de alergias: El usuario puede ingresar las alergias por dos maneras, por nombre y valor o por nombre o valor, las alergias ingresadas son añadidas a una lista de alergias del usuario la cual despues se realiza la evauluacion de la puntuacion del usuario
 
     - Calcular puntuación total de alergias. Se calculan la puntuacion del usuario segun las alergias que fueron ingresadas en la opcion anterior
 
     - Mostrar informacion de las alergias: Se muestra la informacion de lista de alergias del programa, las del usuario, y una en especifico
 
-    
-    -Salir: se finaliza el programa
+
+    - Salir: se finaliza el programa
     
     """
+
+    profiler = cProfile.Profile()
+    profiler.enable()
+
 
     # Crear instancias de alergias
     alergias = [
@@ -45,7 +48,7 @@ def main():
     for alergia in alergias:
         tipos_de_alergias.agregar_alergia(alergia)
 
- # Interfaz de usuario
+# Interfaz de usuario
     print("Bienvenido a la evaluación de alergias.")
     while True:
 
@@ -85,10 +88,7 @@ def main():
                 else:
                     print("No se pudo agregar la alergia.")
 
-            for alergia in tipos_de_alergias.obtener_alergias_usuario():
-                print(alergia)
-
-
+                    
         elif opcion == "3":
             alergias_usuario = tipos_de_alergias.obtener_alergias_usuario()
             alergias_usuario_sin_nombre = tipos_de_alergias.obtener_alergias_sin_nombre()
@@ -131,6 +131,11 @@ def main():
 
         else:
             print("Opción no válida.")
+
+    profiler.disable()
+    profiler.print_stats()
+
+    
 
 if __name__ == "__main__":
     main()
