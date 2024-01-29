@@ -17,30 +17,42 @@ class TiposDeAlergias:
     """
     Clase TiposDeAlergias, la cual se encarga de ingresar  las alergias del usuario
 
-    Atributos
+    Atributos:
+
     - alergias: lista que contiene las alergias preterminadas del programa
+
     - alergias_usuario: lista que contiene las alergias que ingreso el usuario el cual cuentan con un nombre y valor valido
+
     - alergias_sin_nombre: lista que contine las alergias que el usuario ingreso sin nombre
+
     - alergias_sin_valor: lista que contine las alergias que el usuario ingreso sin valor
 
-    Métodos
+    Métodos:
+
     - agregar_alergia() : Agrega una alergia al atributo alergias
+
     - agregar_alergias_usuario(): Agrega una alergia al atributo alergias_usuario
+
     - obtener_alergias_usuario(): Retorna el atributo alergias_usuario
+
     - obtener_alergias(): Retorna el atributo alergias
+
     - obtener_alergias_sin_nombre(): Retorna el atributo alergias_sin_nombres
+
     - obtener_alergias_sin_valor(): Retorna el atributo alergias_sin_valor
 
+    - agregar_alergia_nombre_valor() : Agrega una alergia al alergias_usuario, primero analiza si la alergia pertenece al atributo alergias y lo agrega con la informacion de ese atributo, caso contrario se crea una instacia de la clase Alergia y se agrega a alergias_usuario
 
+    - analizar_alergia(): Analiza si el usuario ingreso el nombre o el valor de una alergia, si coincide con alguno del atributo alergias, se agrega a alergias_usuario, caso contrario se agrega  las lista de sin nombre o sin valor segun lo que corresponda.
 
-    - agregar_alergia_nombre_valor() : Agrega una alergia al alergias_usuario, primero analiza si la alergia pertenece
-    al atributo alergias y lo agrega con la informacion de ese atributo, caso contrario se crea una instacia de la clase Alergia y se agrega a alergias_usuario
-    - analizar_alergia(): Analiza si el usuario ingreso el nombre o el valor de una alergia, si coincide con alguno del atributo alergias, se agrega a alergias_usuario, caso contrario
-    se agrega  las lista de sin nombre o sin valor segun lo que corresponda.
     - buscar_alergia_por_valor(): Busca una alergia en en atributo alergias por su valor
+
     -  buscar_alergia_por_nombre(): Busca una alergia en en atributo alergias por su nombre
+
     - obtener_alergia(): se obtine una alergia del atributo alergia
+    
     - esta_en_alergias_usuario() se revisa si una alergia esta en alergias_usuario
+    
     """
 
 
@@ -133,6 +145,7 @@ class TiposDeAlergias:
                     return
                 else:
                     self.agregar_alergias_usuario(self.obtener_alergia(valor))
+                    return
             if alergia.nombre.lower() ==  nombre.lower() and not(alergia.valor == valor):
                 print(f"Error, la alergia {nombre} ya habia sido asocidada con el valor {alergia.valor}")
                 return 
