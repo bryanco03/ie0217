@@ -9,4 +9,4 @@ else
 endif
 
 run:
-    $(PYTHON) $(SRCDIR)main.py
+	$(PYTHON) $(SRCDIR)main.py

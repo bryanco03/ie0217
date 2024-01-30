@@ -1,4 +1,46 @@
 # Tarea 4
+---
+### [Documentacion](https://65b6d848213eeeb15380d012--clever-chimera-c597c7.netlify.app/)
+---
+## Ejecución 
+
+Para correr el programas hay que seguir las siguientes indicaciones:
+
+1. Clonar el repositorio
+
+ ```
+ git clone https://github.com/bryanco03/ie0217.git
+```
+
+2. Ponerse en el directorio Tarea_TRES
+
+Si estas en Windows
+ ```
+  cd .\ie0217\Tareas\TAREA_CUATRO\
+```
+Si estas en linux
+ ```
+  cd ie0217/Tareas/TAREA_CUATRO/
+
+```
+---
+
+
+3. Ejecutar el makefile (Asegurarse que se tenga instalado)
+
+Si estas en windows
+ ```
+mingw32-make
+```
+si estas en linux
+
+ ```
+make
+```
+4. Disfruta del Programa
+
+
+
 
 ---
 ## Parte Teórica

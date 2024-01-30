@@ -2,8 +2,24 @@ from Alergias import Alergia
 from EvaulacionEspecifica import EvaluacionEspecifica
 from TiposAlergias import TiposDeAlergias
 from EvaulacionGeneral import EvaluacionGeneral
-
+import timeit 
 import cProfile
+
+def cargar_alergias_desde_archivo(nombre_archivo):
+    alergias = []
+    with open(nombre_archivo, "r") as archivo:
+        for linea in archivo:
+            # Comprobar si la línea tiene el formato esperado
+            if "(" in linea and ")" in linea:
+                # Dividir la línea en nombre y valor
+                nombre, valor_str = linea.strip().split(" (")
+                valor = int(valor_str[:-1])  # Eliminar el paréntesis cerrado y convertir a entero
+                alergias.append(Alergia(nombre, valor))
+            else:
+                print(f"La línea '{linea.strip()}' no tiene el formato esperado 'nombre (valor)'. Se ignorará.")
+    return alergias
+
+
 
 def main():
 
@@ -23,32 +39,36 @@ def main():
     - Salir: se finaliza el programa
     
     """
-
+    tiempos = []
     profiler = cProfile.Profile()
     profiler.enable()
 
+    tiempo = timeit.timeit(lambda: cargar_alergias_desde_archivo("Alergias.txt"), number=1 ) 
+    tiempos.append(tiempo)
+    alergias = cargar_alergias_desde_archivo("Alergias.txt")
+    
 
     # Crear instancias de alergias
-    alergias = [
-        Alergia("huevos", 1),
-        Alergia("cacahuetes", 2),
-        Alergia("mariscos", 4),
-        Alergia("fresas", 8),
-        Alergia("tomates", 16),
-        Alergia("chocolate", 32),
-        Alergia("polen", 64),
-        Alergia("gatos", 128),
-        Alergia("sardina", 256),
-        Alergia("gluten", 512),
-        Alergia("huevo", 1024)
-    ]
+    #alergias = [
+    #    Alergia("huevos", 1),
+    #    Alergia("cacahuetes", 2),
+    #    Alergia("mariscos", 4),
+    #    Alergia("fresas", 8),1
+    #    Alergia("tomates", 16),
+    #    Alergia("chocolate", 32),
+    #    Alergia("polen", 64),
+    #    Alergia("gatos", 128),
+    #    Alergia("sardina", 256),
+    #    Alergia("gluten", 512),
+    #    Alergia("huevo", 1024)
+    #]
 
     # Crear instancia de TiposDeAlergias
     tipos_de_alergias = TiposDeAlergias()
     for alergia in alergias:
         tipos_de_alergias.agregar_alergia(alergia)
 
-# Interfaz de usuario
+
     print("Bienvenido a la evaluación de alergias.")
     while True:
 
@@ -63,7 +83,9 @@ def main():
         if opcion == "1":
             puntuacion = int(input("Ingrese su puntuación de alergia: "))
             evaluacion_especifica = EvaluacionEspecifica(tipos_de_alergias.obtener_alergias())
-            evaluacion_especifica.imprimir_evaluacion(puntuacion)
+            tiempo2 = timeit.timeit(lambda: evaluacion_especifica.imprimir_evaluacion(puntuacion), number=1 )
+            tiempos.append(tiempo2)
+            #evaluacion_especifica.imprimir_evaluacion(puntuacion)
 
         elif opcion == "2":
             print("Ingresar por:")
@@ -74,10 +96,14 @@ def main():
             if opcion_ingresar == "1":
                 nombre_alergia = input("Ingrese el nombre de la alergia: ")
                 valor_alergia = int(input("Ingrese el valor de la alergia: "))
-                tipos_de_alergias.agregar_alergia_nombre_valor(nombre_alergia, valor_alergia)
+                tiempo3 = timeit.timeit(lambda:tipos_de_alergias.agregar_alergia_nombre_valor(nombre_alergia, valor_alergia), number = 1 )
+                tiempos.append(tiempo3)
+                #tipos_de_alergias.agregar_alergia_nombre_valor(nombre_alergia, valor_alergia)
 
             elif opcion_ingresar == "2":
                 entrada = input("Ingrese el nombre o valor de la alergia: ")
+                tiempo4 = timeit.timeit(lambda:  tipos_de_alergias.analizar_alergia(entrada), number= 1)
+                tiempos.append(tiempo4)
                 nombre, valor = tipos_de_alergias.analizar_alergia(entrada)
                 if nombre and valor:
                     print(f"Alergia agregada correctamente: {nombre} - {valor}")
@@ -94,7 +120,11 @@ def main():
             alergias_usuario_sin_nombre = tipos_de_alergias.obtener_alergias_sin_nombre()
             alergias_usuario_sin_valor = tipos_de_alergias.obtener_alergias_sin_valor()
             evaluacion_general = EvaluacionGeneral(tipos_de_alergias)
+            tiempo5 = timeit.timeit(lambda :  evaluacion_general.calcular_puntuacion_general(alergias_usuario), number= 1)
+            tiempos.append(tiempo5)
             puntuacion_general = evaluacion_general.calcular_puntuacion_general(alergias_usuario)
+            tiempo6 = timeit.timeit(evaluacion_general.imprimir_resultados(alergias_usuario, puntuacion_general,alergias_usuario_sin_nombre, alergias_usuario_sin_valor), number= 1)
+            tiempos.append(tiempo6)
             evaluacion_general.imprimir_resultados(alergias_usuario, puntuacion_general,alergias_usuario_sin_nombre, alergias_usuario_sin_valor)
 
         elif opcion == "4":
@@ -104,6 +134,8 @@ def main():
             print("3. Una en especifico")
             opcion_informacion = input("Opción: ")
             if opcion_informacion == "1":
+                tiempo7 = timeit.timeit(lambda: alergias[0].mostrar_alergias(alergias), number= 1 )
+                tiempos.append(tiempo7)
                 alergias[0].mostrar_alergias(alergias)
 
             elif opcion_informacion == "2":
@@ -124,8 +156,21 @@ def main():
 
             elif opcion_informacion == "3":
                 nombre_alergia = input("Nombre de la alergia: ")
+                tiempo8 = timeit.timeit(lambda: alergias[0].mostrar_alergias(alergias), number= 1 )
+                tiempos.append(tiempo8)
                 alergias[0].mostrar_alergias(alergias,nombre_alergia)
         elif opcion == "5":
+            # print("Tiempos:")
+            # print("Tiempo de cargar los elementos de alergias ",tiempos[0])
+            # print("Tiempo de imprimir_evaluacion()",tiempos[1])
+            # print("Tiempo de agregar_alergia_nombre_valor()",tiempos[2])
+            # print("Tiempo de analizar_alergia() ",tiempos[3])
+            # print("Tiempo de calcular_puntuacion_general() ",tiempos[4])
+            # print("Tiempo de imprimir_resultados()",tiempos[5])
+            # print("Tiempo de mostrar_alergias()",tiempos[6])
+            # print("Tiempo de mostrar_alergias() por nombre",tiempos[7])
+
+
             print("Saliendo del programa.")
             break
 
