@@ -43,8 +43,8 @@ def main():
     profiler = cProfile.Profile()
     profiler.enable()
 
-    tiempo = timeit.timeit(lambda: cargar_alergias_desde_archivo("Alergias.txt"), number=1 ) 
-    tiempos.append(tiempo)
+    #tiempo = timeit.timeit(lambda: cargar_alergias_desde_archivo("Alergias.txt"), number=1 ) 
+    #tiempos.append(tiempo)
     alergias = cargar_alergias_desde_archivo("Alergias.txt")
     
 
@@ -83,9 +83,9 @@ def main():
         if opcion == "1":
             puntuacion = int(input("Ingrese su puntuación de alergia: "))
             evaluacion_especifica = EvaluacionEspecifica(tipos_de_alergias.obtener_alergias())
-            tiempo2 = timeit.timeit(lambda: evaluacion_especifica.imprimir_evaluacion(puntuacion), number=1 )
-            tiempos.append(tiempo2)
-            #evaluacion_especifica.imprimir_evaluacion(puntuacion)
+            #tiempo2 = timeit.timeit(lambda: evaluacion_especifica.imprimir_evaluacion(puntuacion), number=1 )
+            #tiempos.append(tiempo2)
+            evaluacion_especifica.imprimir_evaluacion(puntuacion)
 
         elif opcion == "2":
             print("Ingresar por:")
@@ -96,14 +96,14 @@ def main():
             if opcion_ingresar == "1":
                 nombre_alergia = input("Ingrese el nombre de la alergia: ")
                 valor_alergia = int(input("Ingrese el valor de la alergia: "))
-                tiempo3 = timeit.timeit(lambda:tipos_de_alergias.agregar_alergia_nombre_valor(nombre_alergia, valor_alergia), number = 1 )
-                tiempos.append(tiempo3)
-                #tipos_de_alergias.agregar_alergia_nombre_valor(nombre_alergia, valor_alergia)
+                #tiempo3 = timeit.timeit(lambda:tipos_de_alergias.agregar_alergia_nombre_valor(nombre_alergia, valor_alergia), number = 1 )
+                #tiempos.append(tiempo3)
+                tipos_de_alergias.agregar_alergia_nombre_valor(nombre_alergia, valor_alergia)
 
             elif opcion_ingresar == "2":
                 entrada = input("Ingrese el nombre o valor de la alergia: ")
-                tiempo4 = timeit.timeit(lambda:  tipos_de_alergias.analizar_alergia(entrada), number= 1)
-                tiempos.append(tiempo4)
+                #tiempo4 = timeit.timeit(lambda:  tipos_de_alergias.analizar_alergia(entrada), number= 1)
+                #tiempos.append(tiempo4)
                 nombre, valor = tipos_de_alergias.analizar_alergia(entrada)
                 if nombre and valor:
                     print(f"Alergia agregada correctamente: {nombre} - {valor}")
@@ -120,11 +120,11 @@ def main():
             alergias_usuario_sin_nombre = tipos_de_alergias.obtener_alergias_sin_nombre()
             alergias_usuario_sin_valor = tipos_de_alergias.obtener_alergias_sin_valor()
             evaluacion_general = EvaluacionGeneral(tipos_de_alergias)
-            tiempo5 = timeit.timeit(lambda :  evaluacion_general.calcular_puntuacion_general(alergias_usuario), number= 1)
-            tiempos.append(tiempo5)
+            #tiempo5 = timeit.timeit(lambda :  evaluacion_general.calcular_puntuacion_general(alergias_usuario), number= 1)
+            #tiempos.append(tiempo5)
             puntuacion_general = evaluacion_general.calcular_puntuacion_general(alergias_usuario)
-            tiempo6 = timeit.timeit(evaluacion_general.imprimir_resultados(alergias_usuario, puntuacion_general,alergias_usuario_sin_nombre, alergias_usuario_sin_valor), number= 1)
-            tiempos.append(tiempo6)
+            #tiempo6 = timeit.timeit(evaluacion_general.imprimir_resultados(alergias_usuario, puntuacion_general,alergias_usuario_sin_nombre, alergias_usuario_sin_valor), number= 1)
+            #tiempos.append(tiempo6)
             evaluacion_general.imprimir_resultados(alergias_usuario, puntuacion_general,alergias_usuario_sin_nombre, alergias_usuario_sin_valor)
 
         elif opcion == "4":
@@ -134,8 +134,8 @@ def main():
             print("3. Una en especifico")
             opcion_informacion = input("Opción: ")
             if opcion_informacion == "1":
-                tiempo7 = timeit.timeit(lambda: alergias[0].mostrar_alergias(alergias), number= 1 )
-                tiempos.append(tiempo7)
+                #tiempo7 = timeit.timeit(lambda: alergias[0].mostrar_alergias(alergias), number= 1 )
+                # tiempos.append(tiempo7)
                 alergias[0].mostrar_alergias(alergias)
 
             elif opcion_informacion == "2":
@@ -156,8 +156,8 @@ def main():
 
             elif opcion_informacion == "3":
                 nombre_alergia = input("Nombre de la alergia: ")
-                tiempo8 = timeit.timeit(lambda: alergias[0].mostrar_alergias(alergias), number= 1 )
-                tiempos.append(tiempo8)
+                #tiempo8 = timeit.timeit(lambda: alergias[0].mostrar_alergias(alergias), number= 1 )
+                #tiempos.append(tiempo8)
                 alergias[0].mostrar_alergias(alergias,nombre_alergia)
         elif opcion == "5":
             # print("Tiempos:")
