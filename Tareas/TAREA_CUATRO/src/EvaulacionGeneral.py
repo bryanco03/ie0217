@@ -56,10 +56,11 @@ class EvaluacionGeneral:
 
         if alergias_sin_nombre:
             print("Alergias con puntuación pero sin nombre:")
-            for valor in alergias_sin_nombre:
+            for alergia in alergias_sin_valor:
                 print(f"Alergia: {alergia} , Valor: -----")
 
         # Calcular promedio de alergias y valores desconocidos
+            
         total_alergias = len(alergias_evaluadas)
         total_desconocidos = len(alergias_sin_valor) + len(alergias_sin_nombre)
         promedio_alergias = len(alergias_evaluadas) / (total_alergias + total_desconocidos)
