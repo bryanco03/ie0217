@@ -10,32 +10,46 @@ def main():
     while True:
             print("1. Informacion revelante de las columnas con datos numericos")
             print("2. reporte de cada aerolinea")
-            print("3. salir")
+            print("3. Gráficos")
+            print("4. salir")
             print("")
             opcion = input("Ingrese una opcion: ")
 
             if opcion == "1":
                 datos.mostar_estadisticas()
             elif opcion == "2":
-                columnas = ["EXP_PILOT_COPILOT","EXP_FUEL_OIL","EXP_HULL_INS","EXP_THIRD_PARTY_LIAB_INS","EXP_PAX_LIAB_INS","EXP_MAINTENANCE","EXP_DEPRECIATION"]
-                #reportes = sum_columns(datos.data,columnas)
-                reportes =  generar_reporte(datos.data, columnas)
+                reportes =  generar_reporte(datos.data)
                 for report in reportes:
                     print(report)
             elif opcion == "3":
+                print("¿Cual grafico deseas observar?")
+                print("1. Gráfico de dispersion de gastos en pilotos y copilotos sobre las horas en vuelos en un mes")
+                print("2. Gráfico de barras de los gastos en mantenimiento de las compañias en el 2023")
+                print("3 Gráfico de barras de horas en vuelo de las compañias en el 2023.")
+                print("4.")
+                opcion_grafico = input("Ingrese una opcion: ")
+                if opcion_grafico == "1":
+                    datos.grafico_dispersion_gastos_piloto()
+                elif opcion_grafico == "2":
+                    datos.grafico_barras_mantenimiento()
+                elif opcion_grafico == "3":
+                    datos.grafico_barras_horas_vuelo()
+                elif opcion_grafico == "4":
+                    datos.grafico_dispersion_gastos_combustible()
+
+
+            
+            elif opcion == "4":
                 break
+                
+            else:
+                print("Opcion desconocida")
 
 
 
 
 
 
-    #datos.mostrar_datos()
-    #datos.mostar_estadisticas()
-    #generar_reporte(datos.data)
-    #datos.data.boxplot(column="EXP_PILOT_COPILOT")
-    #plt.show()
-# "EXP_PILOT_COPILOT","EXP_FUEL_OIL","EXP_HULL_INS","EXP_THIRD_PARTY_LIAB_INS","EXP_PAX_LIAB_INS","EXP_MAINTENANCE","EXP_DEPRECIATION","FUEL_ISSUED","BLK_HOURS"
 
 if __name__ == "__main__":
     main()
