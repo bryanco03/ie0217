@@ -1,4 +1,37 @@
 # Tarea 5
+
+---
+## Analisis de datos
+---
+
+Al crear el programa de la primera parte de la parte teorica se puede profundizar mas en los datos obtenidos en la pagina [Boreau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=GFF&QO_fu146_anzr=S14z%20FMLP
+), la desviacion estándar en el caso de las columnas suele rondar numeros relativamente altos, lo cual indica que los datos están muy dispersos entre si, lo cual tambien se aprecia en la cantidad de valores atipicos encontrados en cada columna rondan entre los 25 - 35 valores atipicos encontrados, y al ser una muestra de alrededor de 217 datos, son una cantidad relativamente grande, ya que suelen representar alrededor de 11% al 16% de los datos totales 
+
+Para observar lo anteriormente mencionado se graficó los gastos en pilotos y copilotos entre las horas de vuelo.
+
+![Grafico de dispersion](images/figure_1.png)
+
+Al observar el grafico se observa que la mayoria de puntos de concentran en la esquina inferior izquierda, aunque se aprecia que conforme se aumente las horas de vuelo hay mas dispersion,tambien se podria aplicar una regresion lineal para ver la relacion entre las variables ya que a simple vista se ve un comportamiento lineal, al realizar una regresion lineal se confirmaria si hay esa relacion ademas de poder estimar de forma aproximada cuanto gastan las compañias areas en pilotos y copilotos por una hora de vuelo.
+
+
+Por otro lado se grafico los gastos en mantenimiento que tuvieron las aerolineas en el 2023
+![Grafico de barras](images/figure_2.png)
+
+En anterior gráfico se distingue cuales aerolineas tiene mas gastos en mantenimiento, se nota que la gran mayoria no sobre pasa los 10 millones de dolares, mientras las que más gastan en este aspecto son cuatro aerolineas que rondan rondan entre los 20 a 35 millones de dolares, en medio de estos dos grupos no hay ninguna compañia aerea, esto se ve reforzado por el numero de valores atipicos encontrado, que que la mayoria de valores se concentran en valores mas bajos, sin embargo hay compañias que tienen valores muchisimos mas altos que a los demas.
+
+Esta dispersion de valores tambien se destaca en la siguiente grafica de barras que muestra el promedio de horas de vuelo al mes de cada aerolinea con su desviacion estandar.
+
+![Grafico de barras](images/figure_3.png)
+
+En este grafico se observan de manera similar el anterior grafico, la mayoria de las aerolineas no superan las 2 mil horas de promedio al mes, pero son cuatro compañias que superan con crecres las 2 mil horas, ademas se observan por las rayas negras, la desviacion estandar, en la cual la mayoria de casos son relativamente altos, por lo que indica una gran dispersion entre las horas de vuelo de una compañia aerea en un mes suele variar mucho.
+
+
+Tambien se grafico los gastos de combustibles en funcion de los galones de combustible utilizados.
+
+![Grafico de barras](images/figure_4.png)
+
+De forma parecida en el primer grafico los valores se agrupan en la esquina inferior izquierda, y se van esparciendo conforme se aumenta los galones de combustible, en este caso es  mas notorio una relacion lineal debido a que los dados tienden a agruparse en forma de una recta, si se aplicara una regresion lineal se podria corroborar dicha relacion y ademas calcular de manera aproximadamente el valor que tubo cada galon de gasolina 
+
 ---
 ## Parte Teórica 
  ### Iteradores

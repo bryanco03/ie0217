@@ -33,7 +33,7 @@ def main():
                     print("¿Cual grafico deseas observar?")
                     print("1. Gráfico de dispersion de gastos en pilotos y copilotos sobre las horas en vuelos en un mes")
                     print("2. Gráfico de barras de los gastos en mantenimiento de las compañias en el 2023")
-                    print("3. Gráfico de barras de horas en vuelo de las compañias en el 2023.")
+                    print("3. Gráfico de barras de horas en vuelo de las compañias.")
                     print("4. Gráfico de dispersion de gastos en combustible sobre los galones de combustible utilizados ")
                     opcion_grafico = input("Ingrese una opcion: ")
                     if opcion_grafico == "1":

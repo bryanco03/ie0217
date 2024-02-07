@@ -169,8 +169,8 @@ class Data:
 
         sns.barplot(data=self.data, x="CARRIER", y="BLK_HOURS")
         plt.xlabel("Compañía aérea")
-        plt.ylabel("Horas en vuelo en 2023")
-        plt.title("Horas de vuelo por compañía aérea en 2023")
+        plt.ylabel("Promedio de horas en vuelo en un mes ")
+        plt.title("Horas de vuelo por compañía aérea")
         plt.show()
     
     def grafico_dispersion_gastos_combustible(self):
@@ -185,6 +185,6 @@ class Data:
         sns.scatterplot(data=self.data, x="FUEL_ISSUED",y="EXP_FUEL_OIL")
         plt.xlabel("Combustible en galones")
         plt.ylabel("Gastos en combustible")
-        plt.title("Horas de vuelo por compañía aérea en 2023")
+        plt.title("Gastos de combustible en funcion del combustible en galones utilizado")
         plt.show()
 
