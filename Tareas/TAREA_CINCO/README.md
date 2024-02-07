@@ -1,36 +1,75 @@
 # Tarea 5
 
+## Ejecución 
+
+Para correr el programas hay que seguir las siguientes indicaciones:
+
+1. Clonar el repositorio
+
+ ```
+ git clone https://github.com/bryanco03/ie0217.git
+```
+
+2. Ponerse en el directorio Tarea_CINCO
+
+Si estas en Windows
+ ```
+  cd .\ie0217\Tareas\TAREA_CINCO\
+```
+Si estas en linux
+ ```
+  cd ie0217/Tareas/TAREA_CINCO/
+
+```
+---
+
+
+3. Ejecutar el makefile (Asegurarse que se tenga instalado)
+
+Si estas en windows
+ ```
+mingw32-make
+```
+si estas en linux
+
+ ```
+make
+```
+4. Disfruta del Programa
+
+
 ---
 ## Analisis de datos
 ---
 
-Al crear el programa de la primera parte de la parte teorica se puede profundizar mas en los datos obtenidos en la pagina [Boreau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=GFF&QO_fu146_anzr=S14z%20FMLP
-), la desviacion estándar en el caso de las columnas suele rondar numeros relativamente altos, lo cual indica que los datos están muy dispersos entre si, lo cual tambien se aprecia en la cantidad de valores atipicos encontrados en cada columna rondan entre los 25 - 35 valores atipicos encontrados, y al ser una muestra de alrededor de 217 datos, son una cantidad relativamente grande, ya que suelen representar alrededor de 11% al 16% de los datos totales 
+Al crear el programa de la primera parte de la parte teórica se puede profundizar más en los datos obtenidos en la página [Boreau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=GFF&QO_fu146_anzr=S14z%20FMLP
+), la desviación estándar en el caso de las columnas suele rondar números relativamente altos, lo cual indica que los datos están muy dispersos entre sí, lo cual también se aprecia en la cantidad de valores atípicos encontrados en cada columna rondan entre los 25 - 35 valores atípicos encontrados, y al ser una muestra de alrededor de 217 datos, son una cantidad relativamente grande, ya que suelen representar alrededor de 11% al 16% de los datos totales 
+
 
 Para observar lo anteriormente mencionado se graficó los gastos en pilotos y copilotos entre las horas de vuelo.
 
 ![Grafico de dispersion](images/figure_1.png)
 
-Al observar el grafico se observa que la mayoria de puntos de concentran en la esquina inferior izquierda, aunque se aprecia que conforme se aumente las horas de vuelo hay mas dispersion,tambien se podria aplicar una regresion lineal para ver la relacion entre las variables ya que a simple vista se ve un comportamiento lineal, al realizar una regresion lineal se confirmaria si hay esa relacion ademas de poder estimar de forma aproximada cuanto gastan las compañias areas en pilotos y copilotos por una hora de vuelo.
+Al observar el grafico se observa que la mayoría de puntos de concentran en la esquina inferior izquierda, aunque se aprecia que conforme se aumente las horas de vuelo hay más dispersión, también se podría aplicar una regresión lineal para ver la relación entre las variables ya que a simple vista se ve un comportamiento lineal, al realizar una regresión lineal se confirmaría si hay esa relación además de poder estimar de forma aproximada cuanto gastan las compañías areas en pilotos y copilotos por una hora de vuelo.
 
-
-Por otro lado se grafico los gastos en mantenimiento que tuvieron las aerolineas en el 2023
+Por otro lado, se graficó los gastos en mantenimiento que tuvieron las aerolineas en el 2023
 ![Grafico de barras](images/figure_2.png)
 
-En anterior gráfico se distingue cuales aerolineas tiene mas gastos en mantenimiento, se nota que la gran mayoria no sobre pasa los 10 millones de dolares, mientras las que más gastan en este aspecto son cuatro aerolineas que rondan rondan entre los 20 a 35 millones de dolares, en medio de estos dos grupos no hay ninguna compañia aerea, esto se ve reforzado por el numero de valores atipicos encontrado, que que la mayoria de valores se concentran en valores mas bajos, sin embargo hay compañias que tienen valores muchisimos mas altos que a los demas.
+En anterior gráfico se distingue cuales aerolíneas tiene más gastos en mantenimiento, se nota que la gran mayoría no sobre pasa los 10 millones de dólares, mientras las que más gastan en este aspecto son cuatro aerolíneas que rondan entre los 20 a 35 millones de dólares, en medio de estos dos grupos no hay ninguna compañía aérea, esto se ve reforzado por el número de valores atipicos encontrado, que que la mayoria de valores se concentran en valores más bajos, sin embargo hay compañías que tienen valores muchísimos más altos que a los demás.
 
-Esta dispersion de valores tambien se destaca en la siguiente grafica de barras que muestra el promedio de horas de vuelo al mes de cada aerolinea con su desviacion estandar.
+Esta dispersión de valores también se destaca en la siguiente grafica de barras que muestra el promedio de horas de vuelo al mes de cada aerolínea con su desviacion estandar.
+
 
 ![Grafico de barras](images/figure_3.png)
 
-En este grafico se observan de manera similar el anterior grafico, la mayoria de las aerolineas no superan las 2 mil horas de promedio al mes, pero son cuatro compañias que superan con crecres las 2 mil horas, ademas se observan por las rayas negras, la desviacion estandar, en la cual la mayoria de casos son relativamente altos, por lo que indica una gran dispersion entre las horas de vuelo de una compañia aerea en un mes suele variar mucho.
+En este grafico se observan de manera similar el anterior gráfico, la mayoría de las aerolíneas no superan las 2 mil horas de promedio al mes, pero son cuatro compañías que superan con creces las 2 mil horas, además se observan por las rayas negras, la desviación estándar, en la cual la mayoría de los casos son relativamente altos, por lo que indica una gran dispersión entre las horas de vuelo de una compañía aérea en un mes suele variar mucho.
 
+también se graficó los gastos de combustibles en función de los galones de combustible utilizados.
 
-Tambien se grafico los gastos de combustibles en funcion de los galones de combustible utilizados.
 
 ![Grafico de barras](images/figure_4.png)
 
-De forma parecida en el primer grafico los valores se agrupan en la esquina inferior izquierda, y se van esparciendo conforme se aumenta los galones de combustible, en este caso es  mas notorio una relacion lineal debido a que los dados tienden a agruparse en forma de una recta, si se aplicara una regresion lineal se podria corroborar dicha relacion y ademas calcular de manera aproximadamente el valor que tubo cada galon de gasolina 
+De forma parecida en el primer grafico los valores se agrupan en la esquina inferior izquierda, y se van esparciendo conforme se aumenta los galones de combustible, en este caso es más notorio una relación lineal debido a que los dados tienden a agruparse en forma de una recta, si se aplicara una regresión lineal se podría corroborar dicha relación y además calcular de manera aproximadamente el valor que tubo cada galón de combustible
 
 ---
 ## Parte Teórica 
