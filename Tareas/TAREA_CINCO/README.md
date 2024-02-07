@@ -54,7 +54,7 @@ Al observar el grafico se observa que la mayoría de puntos de concentran en la 
 
 Por otro lado, se graficó los gastos en mantenimiento que tuvieron las aerolineas en el 2023
 
-![Grafico de barras](imagenes/figure_2.png)
+![Grafico de barras](https://github.com/bryanco03/ie0217/blob/main/Tareas/TAREA_CINCO/imagenes/Figure_2.png?raw=true)
 
 En anterior gráfico se distingue cuales aerolíneas tiene más gastos en mantenimiento, se nota que la gran mayoría no sobre pasa los 10 millones de dólares, mientras las que más gastan en este aspecto son cuatro aerolíneas que rondan entre los 20 a 35 millones de dólares, en medio de estos dos grupos no hay ninguna compañía aérea, esto se ve reforzado por el número de valores atipicos encontrado, que que la mayoria de valores se concentran en valores más bajos, sin embargo hay compañías que tienen valores muchísimos más altos que a los demás.
 
