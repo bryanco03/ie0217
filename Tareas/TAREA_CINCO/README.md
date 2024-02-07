@@ -47,28 +47,28 @@ Al crear el programa de la primera parte de la parte teórica se puede profundiz
 
 Para observar lo anteriormente mencionado se graficó los gastos en pilotos y copilotos entre las horas de vuelo.
 
-![Grafico de barras](images/figure_1.png)
+![Grafico de barras](imagenes/figure_1.png)
 
 
 Al observar el grafico se observa que la mayoría de puntos de concentran en la esquina inferior izquierda, aunque se aprecia que conforme se aumente las horas de vuelo hay más dispersión, también se podría aplicar una regresión lineal para ver la relación entre las variables ya que a simple vista se ve un comportamiento lineal, al realizar una regresión lineal se confirmaría si hay esa relación además de poder estimar de forma aproximada cuanto gastan las compañías areas en pilotos y copilotos por una hora de vuelo.
 
 Por otro lado, se graficó los gastos en mantenimiento que tuvieron las aerolineas en el 2023
 
-![Grafico de barras](images/figure_2.png)
+![Grafico de barras](imagenes/figure_2.png)
 
 En anterior gráfico se distingue cuales aerolíneas tiene más gastos en mantenimiento, se nota que la gran mayoría no sobre pasa los 10 millones de dólares, mientras las que más gastan en este aspecto son cuatro aerolíneas que rondan entre los 20 a 35 millones de dólares, en medio de estos dos grupos no hay ninguna compañía aérea, esto se ve reforzado por el número de valores atipicos encontrado, que que la mayoria de valores se concentran en valores más bajos, sin embargo hay compañías que tienen valores muchísimos más altos que a los demás.
 
 Esta dispersión de valores también se destaca en la siguiente grafica de barras que muestra el promedio de horas de vuelo al mes de cada aerolínea con su desviacion estandar.
 
 
-![Grafico de barras](images/figure_3.png)
+![Grafico de barras](imagenes/figure_3.png)
 
 En este grafico se observan de manera similar el anterior gráfico, la mayoría de las aerolíneas no superan las 2 mil horas de promedio al mes, pero son cuatro compañías que superan con creces las 2 mil horas, además se observan por las rayas negras, la desviación estándar, en la cual la mayoría de los casos son relativamente altos, por lo que indica una gran dispersión entre las horas de vuelo de una compañía aérea en un mes suele variar mucho.
 
 también se graficó los gastos de combustibles en función de los galones de combustible utilizados.
 
 
-![Grafico de barras](images/figure_4.png)
+![Grafico de barras](imagenes/figure_4.png)
 
 De forma parecida en el primer grafico los valores se agrupan en la esquina inferior izquierda, y se van esparciendo conforme se aumenta los galones de combustible, en este caso es más notorio una relación lineal debido a que los dados tienden a agruparse en forma de una recta, si se aplicara una regresión lineal se podría corroborar dicha relación y además calcular de manera aproximadamente el valor que tubo cada galón de combustible
 
