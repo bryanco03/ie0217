@@ -42,17 +42,18 @@ make
 ## Analisis de datos
 ---
 
-Al crear el programa de la primera parte de la parte teórica se puede profundizar más en los datos obtenidos en la página [Boreau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=GFF&QO_fu146_anzr=S14z%20FMLP
-), la desviación estándar en el caso de las columnas suele rondar números relativamente altos, lo cual indica que los datos están muy dispersos entre sí, lo cual también se aprecia en la cantidad de valores atípicos encontrados en cada columna rondan entre los 25 - 35 valores atípicos encontrados, y al ser una muestra de alrededor de 217 datos, son una cantidad relativamente grande, ya que suelen representar alrededor de 11% al 16% de los datos totales 
+Al crear el programa de la primera parte de la parte teórica se puede profundizar más en los datos obtenidos en la página [Boreau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=GFF&QO_fu146_anzr=S14z%20FMLP),la desviación estándar en el caso de las columnas suele rondar números relativamente altos, lo cual indica que los datos están muy dispersos entre sí, lo cual también se aprecia en la cantidad de valores atípicos encontrados en cada columna rondan entre los 25 - 35 valores atípicos encontrados, y al ser una muestra de alrededor de 217 datos, son una cantidad relativamente grande, ya que suelen representar alrededor de 11% al 16% de los datos totales 
 
 
 Para observar lo anteriormente mencionado se graficó los gastos en pilotos y copilotos entre las horas de vuelo.
 
-![Grafico de dispersion](images/figure_1.png)
+![Grafico de barras](images/figure_1.png)
+
 
 Al observar el grafico se observa que la mayoría de puntos de concentran en la esquina inferior izquierda, aunque se aprecia que conforme se aumente las horas de vuelo hay más dispersión, también se podría aplicar una regresión lineal para ver la relación entre las variables ya que a simple vista se ve un comportamiento lineal, al realizar una regresión lineal se confirmaría si hay esa relación además de poder estimar de forma aproximada cuanto gastan las compañías areas en pilotos y copilotos por una hora de vuelo.
 
 Por otro lado, se graficó los gastos en mantenimiento que tuvieron las aerolineas en el 2023
+
 ![Grafico de barras](images/figure_2.png)
 
 En anterior gráfico se distingue cuales aerolíneas tiene más gastos en mantenimiento, se nota que la gran mayoría no sobre pasa los 10 millones de dólares, mientras las que más gastan en este aspecto son cuatro aerolíneas que rondan entre los 20 a 35 millones de dólares, en medio de estos dos grupos no hay ninguna compañía aérea, esto se ve reforzado por el número de valores atipicos encontrado, que que la mayoria de valores se concentran en valores más bajos, sin embargo hay compañías que tienen valores muchísimos más altos que a los demás.
