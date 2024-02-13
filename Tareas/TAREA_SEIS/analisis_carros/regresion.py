@@ -10,14 +10,27 @@ from mpl_toolkits.mplot3d import Axes3D
 import pandas as pd
 
 def regresion_lineal(df):
-    # obtener dator
+    """
+    Funcion que realiza una regresion lineal entre los datos de años y kilometraje, se crea un grafico de dispersion
+    y se traza la linea de la regresion lineal resultante, ademas se calculan los valores de MSE, MAE y el coeficente 
+    de determinacion para determinar que tan relacionados estan los datos analizados
+
+    Parametros:
+
+    - df: dataframe de pandas al cual cotiene los datos a analizar
+
+    """
+
+
+
+    # obtener datos
     x_year = df['year'].values.reshape(-1, 1)
     y_km_driven = df['km_driven'].values
 
     # Graficar los datos
     plt.scatter(x_year, y_km_driven, label='Datos')
     
-    # Realizar la regresión lineal
+    # Separar datos en train y test
     X_train, X_test, y_train, y_test = train_test_split(x_year, y_km_driven, test_size=0.2, random_state=42)
 
     model_simple = LinearRegression()
@@ -44,6 +57,16 @@ def regresion_lineal(df):
     plt.show()
 
 def regresion_lineal2(df):
+    """
+    Funcion que realiza una regresion lineal entre los datos de años y precio de venta, se crea un grafico de dispersion
+    y se traza la linea de la regresion lineal resultante, ademas se calculan los valores de MSE, MAE y el coeficente 
+    de determinacion para determinar que tan relacionados estan los datos analizados
+
+    Parametros:
+
+    - df: dataframe de pandas al cual contiene los datos a analizar
+
+    """
     # obtener dator
     x_year = df['year'].values.reshape(-1, 1)
     y_km_driven = df['selling_price'].values
@@ -78,6 +101,19 @@ def regresion_lineal2(df):
 
 
 def regresion_no_lineal(df, grado):
+    """
+    Funcion que realiza una regresion no lineal del grado ingresado por argumento, entre los datos de años y kilometraje, se crea un grafico de dispersion
+    y se traza la curva de la regresion no lineal resultante, ademas se calculan los valores de MSE, MAE y el coeficente de determinacion 
+    para determinar que tan relacionados estan los datos analizados.
+
+
+    Parametros:
+
+    - df: dataframe de pandas al cual contiene los datos a analizar.
+
+    - grado: int el cual indica el grado de la regresion no lineal.
+
+    """
     # Obtener datos
     x_year = df['year'].values.reshape(-1, 1)
     y_km_driven = df['km_driven'].values
@@ -114,6 +150,18 @@ def regresion_no_lineal(df, grado):
     plt.show()
 
 def regresion_no_lineal2(df, grado):
+    """
+    Funcion que realiza una regresion no lineal del grado ingresado por argumento, entre los datos de años y precio de venta, se crea un grafico de dispersion
+    y se traza la curva de la regresion no lineal resultante, ademas se calculan los valores de MSE, MAE y el coeficente de determinacion 
+    para determinar que tan relacionados estan los datos analizados.
+
+    Parametros:
+
+    - df: dataframe de pandas al cual contiene los datos a analizar.
+
+    - grado: int el cual indica el grado de la regresion no lineal.
+
+    """
     # Obtener datos
     x_year = df['year'].values.reshape(-1, 1)
     y_price = df['selling_price'].values
@@ -150,6 +198,20 @@ def regresion_no_lineal2(df, grado):
     plt.show()
 
 def regresion_lineal_3d(df):
+
+    """
+    Funcion para realizar una regresion lineal multiple en un grafico de dispersion en tres dimensiones,  con los datos de 
+    año, kilometraje y precio de venta,  traza el plano de la regresion lineal resultante, ademas se calculan los valores de MSE, MAE y el coeficente de determinacion 
+    para determinar que tan relacionados estan los datos analizados.
+
+    Parametros:
+
+    - df: dataframe de pandas al cual contiene los datos a analizar
+
+    """
+
+
+
     # extraer datos
     x_year_y_km_driven = df[['year', 'km_driven']]
     z_price = df['selling_price']
@@ -196,12 +258,24 @@ def regresion_lineal_3d(df):
 
     # Mostrar gráfico
     plt.show()
-def regresion_no_lineal_3d(df):
+def regresion_no_lineal_3d(df, grado):
+
+    """
+    Funcion para realizar una regresion lineal multiple en un grafico de dispersion en tres dimensiones,  con los datos de 
+    año, kilometraje y precio de venta,  traza el superficie de la regresion lineal resultante, ademas se calculan los valores de MSE, MAE y el coeficente de determinacion 
+    para determinar que tan relacionados estan los datos analizados.
+
+    Parametros:
+
+    - df: dataframe de pandas al cual contiene los datos a analizar
+
+    """
+
     # extraer datos
     x_year_y_km_driven = df[['year', 'km_driven']]
     z_price = df['selling_price']
     # Crear transformaciones polinómicas de las características
-    poly = PolynomialFeatures(degree=3)
+    poly = PolynomialFeatures(degree=grado)
     X_poly = poly.fit_transform(x_year_y_km_driven)
 
     # Crear un modelo de regresión lineal

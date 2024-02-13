@@ -1,6 +1,11 @@
 import pandas as pd
 
 def cargar_datos(nombre_archivo):
+        """
+        Funcion para cargar los datos a un dataframe del archivo csv obtenido de kaggle, con su manejo de errores 
+        
+        
+        """
         try:
             df = pd.read_csv(nombre_archivo)
             return df
@@ -15,6 +20,9 @@ def cargar_datos(nombre_archivo):
             return pd.DataFrame()
     
 def limpiar_datos(df):
+    """
+    Funcion para eliminar filas con datos nulos
+    """
     # eliminar filas con valores faltantes 
     df = df.dropna()
     return df

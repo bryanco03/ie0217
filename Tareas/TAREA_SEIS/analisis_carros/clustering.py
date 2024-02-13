@@ -1,32 +1,33 @@
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans, DBSCAN
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.metrics import silhouette_score
-from yellowbrick.cluster import KElbowVisualizer
 from datos import cargar_datos
-from sklearn.cluster import DBSCAN
-from mpl_toolkits.mplot3d import Axes3D
 
+# Carga los datos desde un archivo CSV utilizando la función cargar_datos
 df = cargar_datos('data\CAR DETAILS FROM CAR DEKHO.csv')
 
-
-
 def codo(df):
-    # Preparar los datos
+    """
+    Función que calcula la inercia para diferentes valores de k en KMeans
+    y grafica el codo para ayudar a determinar el número óptimo de clusters.
+    
+    Args:
+    - df: DataFrame que contiene los datos a ser utilizados para el clustering.
+    """
+    # Prepara los datos
     X = df[['year', 'selling_price', 'km_driven']]
     X = StandardScaler().fit_transform(X)
-    # se calculan inercias para diferentes k
+    
+    # Calcula las inercias para diferentes valores de k
     inertias = []
     for k in range(1, 11):
         kmeans = KMeans(n_clusters=k, random_state=42)
         kmeans.fit(X)
         inertias.append(kmeans.inertia_)
 
-    # graficar codo
-
+    # Grafica el método del codo
     plt.plot(range(1, 11), inertias, marker="o")
     plt.title("Metodo del codo")
     plt.xlabel("Numero de clusters k")
@@ -34,10 +35,18 @@ def codo(df):
     plt.show()
 
 def silueta(df):
-    # Preparar los datos
+    """
+    Función que calcula el coeficiente de silueta para diferentes valores de k en KMeans
+    y grafica el método de la silueta para ayudar a determinar el número óptimo de clusters.
+    
+    Args:
+    - df: DataFrame que contiene los datos a ser utilizados para el clustering.
+    """
+    # Prepara los datos
     X = df[['year', 'selling_price', 'km_driven']]
     X = StandardScaler().fit_transform(X)
-    # calular coeficiente de silueta para diferentes k
+    
+    # Calcula el coeficiente de silueta para diferentes valores de k
     silhouette_scores = []
     for k in range(2, 20):
         kmeans = KMeans(n_clusters=k, random_state=42)
@@ -45,41 +54,45 @@ def silueta(df):
         score = silhouette_score(X, kmeans.labels_)
         silhouette_scores.append(score)
 
-    # graficar metodo de la silueta
+    # Grafica el método de la silueta
     plt.plot(range(2, 20), silhouette_scores, marker="o")
     plt.title("Método de la silueta")
     plt.xlabel("Numero de clusters k")
     plt.ylabel("Coeficiente de silueta")
     plt.show()
 
-
 def clustering_kmeans(df):
+    """
+    Función que realiza el clustering con KMeans y grafica los resultados.
     
+    Args:
+    - df: DataFrame que contiene los datos a ser utilizados para el clustering.
+    """
     X = df[['selling_price', 'km_driven']]
     X = StandardScaler().fit_transform(X)
-    # subgraficos
+    
+    # Subgráficos
     plt.figure(figsize=(12,5))
 
-    # subgrafico 1 visualizar de puntos de los datos
+    # Subgráfico 1: Visualizar los puntos de los datos
     plt.subplot(1, 2, 1)
     plt.scatter(X[: , 0], X[:, 1], c="blue", marker="o")
     plt.title("Kilometraje vs Precio de venta")
-    plt.title("Resultados del clustering con K-means")
     plt.xlabel("Precio de venta")
 
-    # Configuracion de k-means en un numero de clusters k especifico
+    # Configuración de KMeans con un número específico de clusters
     kmeans = KMeans(n_clusters=4)
-    # ajustar
+    # Ajuste
     kmeans.fit(X)
-    # etiquetas de los clusters y coordenadad de centroides
+    # Etiquetas de los clusters y coordenadas de los centroides
     labels = kmeans.labels_
     centroids = kmeans.cluster_centers_
 
-    # sub grafico 2 clusters con kmeans
+    # Subgráfico 2: Clusters con KMeans
     plt.subplot(1, 2, 2)
     for i in range(len(X)):
         plt.scatter(X[i][0], X[i][1],
-                    c=("r" if labels[i ]== 0 else "b" if labels[i] == 1 else "g"),
+                    c=("r" if labels[i] == 0 else "b" if labels[i] == 1 else "g"),
                     marker="o")
     plt.scatter(centroids[:, 0], centroids[:, 1], c="black", marker="X", s=200,
                 label="centroid")
@@ -88,38 +101,45 @@ def clustering_kmeans(df):
     plt.ylabel("Kilometraje")
     plt.legend()
 
-    # ajustar diseño
+    # Ajustar diseño
     plt.tight_layout()
 
-    # mostrar subgraficos
+    # Mostrar subgráficos
     plt.show()
 
 def clustering_DBSCAN(df):
-
+    """
+    Función que realiza el clustering con DBSCAN y grafica los resultados.
+    
+    Args:
+    - df: DataFrame que contiene los datos a ser utilizados para el clustering.
+    """
     X = df[['selling_price', 'km_driven']]
     X = StandardScaler().fit_transform(X)
 
-
-    # Configura  y  sea justa el modelo DBSCAN
+    # Configura y ajusta el modelo DBSCAN
     dbscan = DBSCAN(eps=0.3, min_samples=5)
     dbscan_labels = dbscan.fit_predict(X)
 
-    # ver resultados
+    # Ver resultados
     plt.scatter(X[:, 0], X[:, 1], c=dbscan_labels, cmap="viridis", edgecolor="k", s=50)
     plt.title("Resultado del Clustering DBSCAN")
-    plt.title("Resultados del clustering con K-means")
     plt.xlabel("Precio de venta")
-    plt. show()
-
-
-
+    plt.show()
 
 def clustering(df):
-
+    """
+    Función que realiza el clustering con KMeans, reduce la dimensionalidad con PCA
+    y visualiza los clusters en 2D.
+    
+    Args:
+    - df: DataFrame que contiene los datos a ser utilizados para el clustering.
+    """
     # Preparar los datos
     X = df[['year', 'selling_price', 'km_driven']]
     X = StandardScaler().fit_transform(X)
-        # Aplicar K-Means con el número óptimo de clusters
+    
+    # Aplicar KMeans con el número óptimo de clusters
     kmeans = KMeans(n_clusters=4)
     kmeans.fit(X)
     cluster_labels = kmeans.labels_
@@ -137,35 +157,37 @@ def clustering(df):
     plt.show()
 
 def clustering_kmeans_3d(df):
+    """
+    Función que realiza el clustering con KMeans y grafica los resultados en 3D.
     
-
-    X = df[['year', 'km_driven']]
-    z_price = df['selling_price']
-
-
-    # Realiza el clustering con KMeans
+    Args:
+    - df: DataFrame que contiene los datos a ser utilizados para el clustering.
+    """
+    X = df[['year', 'km_driven', 'selling_price']]
+    
+    # Realizar el clustering con KMeans
     kmeans = KMeans(n_clusters=4)
     kmeans.fit(X)
-    labels = kmeans.labels_
+    df['cluster'] = kmeans.labels_
 
-    # Crea un gráfico 3D
+    # Colores para cada clúster
+    colors = ['r', 'g', 'b', 'y']
+
+    # Crear un gráfico 3D
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
-    # Grafica los puntos coloreados por clúster
-    scatter = ax.scatter(X['year'], X['km_driven'], z_price, c=labels)
+    # Graficar los puntos coloreados por clúster
+    for i in range(4):
+        cluster_points = df[df['cluster'] == i]
+        ax.scatter(cluster_points['year'], cluster_points['km_driven'], cluster_points['selling_price'], c=colors[i], label=f'Cluster {i}')
 
-    # Agrega leyenda
-    legend1 = ax.legend(*scatter.legend_elements(), title='Clusters')
-    ax.add_artist(legend1)
-
-    # Configura etiquetas y título
-    ax.set_xlabel('X')
-    ax.set_ylabel('Y')
-    ax.set_zlabel('Z')
+    # Configurar etiquetas y título
+    ax.set_xlabel('Año')
+    ax.set_ylabel('Kilometraje')
+    ax.set_zlabel('Precio de venta')
     ax.set_title('Clustering con KMeans en 3D')
+    ax.legend()
 
-    # Muestra el gráfico
+    # Mostrar el gráfico
     plt.show()
-
-clustering_kmeans_3d(df)

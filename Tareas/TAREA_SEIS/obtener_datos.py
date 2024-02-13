@@ -3,6 +3,14 @@ import os
 from requests.auth import HTTPBasicAuth
 from zipfile import ZipFile
 
+
+"""
+Programa para obtener los datos por medio de solicitud http , usando request y la api de kaggle, para su uso primero de debe configurar la api de kaggle https://www.kaggle.com/docs/api
+y poner los datos en username y en key
+
+
+"""
+
 username = "bryancorts"
 key = "98dbc3e17879852d24cc8c345cd52419"
 path = "analisis_carros\datos.zip"
