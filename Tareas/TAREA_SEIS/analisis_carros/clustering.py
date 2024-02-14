@@ -27,6 +27,7 @@ def codo(df):
         kmeans.fit(X)
         inertias.append(kmeans.inertia_)
 
+    print("Se elige k = 4 como el numero optimo de clusters")
     # Grafica el método del codo
     plt.plot(range(1, 11), inertias, marker="o")
     plt.title("Metodo del codo")
@@ -125,6 +126,7 @@ def clustering_DBSCAN(df):
     plt.scatter(X[:, 0], X[:, 1], c=dbscan_labels, cmap="viridis", edgecolor="k", s=50)
     plt.title("Resultado del Clustering DBSCAN")
     plt.xlabel("Precio de venta")
+    plt.xlabel("Kilometraje")
     plt.show()
 
 def clustering(df):
@@ -152,7 +154,7 @@ def clustering(df):
     plt.scatter(X_pca[:, 0], X_pca[:, 1], c=cluster_labels, cmap='viridis')
     plt.xlabel('Componente principal 1')
     plt.ylabel('Componente principal 2')
-    plt.title('Clusters de vehículos')
+    plt.title('Clusters de vehículos usando PCA')
     plt.colorbar(label='Cluster')
     plt.show()
 

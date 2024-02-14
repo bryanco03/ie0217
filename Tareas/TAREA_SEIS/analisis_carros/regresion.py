@@ -32,14 +32,18 @@ def regresion_lineal(df):
     
     # Separar datos en train y test
     X_train, X_test, y_train, y_test = train_test_split(x_year, y_km_driven, test_size=0.2, random_state=42)
-
+    
+    # crear modelo de regresion lineal
     model_simple = LinearRegression()
     model_simple.fit(X_train, y_train)
     y_pred = model_simple.predict(X_test)
 
+    # calcular metricas de evaulacion
     mse_simple = mean_squared_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
     mae = mean_absolute_error(y_test, y_pred)
+
+    print("Evaulacion de la regresion lineal del año vs kilometraje")
     print(f"Error cuadrático medio (MSE): {mse_simple}")
     print(f"Coeficiente de determinación (R²): {r2}")
     print(f"Error absoluto medio (MAE): {mae}")
@@ -84,6 +88,8 @@ def regresion_lineal2(df):
     mse_simple = mean_squared_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
     mae = mean_absolute_error(y_test, y_pred)
+    # mostrar metricas
+    print("Evaulacion de la regresion lineal del año vs precio de venta")
     print(f"Error cuadrático medio (MSE): {mse_simple}")
     print(f"Coeficiente de determinación (R²): {r2}")
     print(f"Error absoluto medio (MAE): {mae}")
@@ -132,6 +138,7 @@ def regresion_no_lineal(df, grado):
     mae_poly = mean_absolute_error(y_km_driven, y_pred)
 
     # Imprimir las métricas
+    print("Evaulacion de la regresion no lineal del año vs kilometraje")
     print(f"Error cuadrático medio (MSE) en regresión polinomial de grado {grado}: {mse_poly}")
     print(f"Coeficiente de determinación (R²) en regresión polinomial de grado {grado}: {r2_poly}")
     print(f"Error absoluto medio (MAE) en regresión polinomial de grado {grado}: {mae_poly}")
@@ -180,6 +187,7 @@ def regresion_no_lineal2(df, grado):
     mae_poly = mean_absolute_error(y_price, y_pred)
 
     # Imprimir las métricas
+    print("Evaulacion de la regresion no lineal del año vs precio de venta")
     print(f"Error cuadrático medio (MSE) en regresión polinomial de grado {grado}: {mse_poly}")
     print(f"Coeficiente de determinación (R²) en regresión polinomial de grado {grado}: {r2_poly}")
     print(f"Error absoluto medio (MAE) en regresión polinomial de grado {grado}: {mae_poly}")
@@ -224,6 +232,7 @@ def regresion_lineal_3d(df):
     # Predecir valores
     y_pred = model.predict(x_year_y_km_driven)
 
+    print("Evaulacion de la regresion lineal multiple")
 
     # Calcular el Mean Squared Error (MSE)
     mse = mean_squared_error(z_price, y_pred)
@@ -286,6 +295,9 @@ def regresion_no_lineal_3d(df, grado):
 
     # Predecir valores
     y_pred = model.predict(X_poly)
+
+    print("Evaulacion de la regresion no lineal multiple")
+
 
     # Calcular el Mean Squared Error (MSE)
     mse = mean_squared_error(z_price, y_pred)
