@@ -9,6 +9,6 @@ else
 endif
 
 run:
-	$(PYTHON) obtener_datos.py
+	$(PYTHON) $(SRCDIR)obtener_datos.py
 	$(PYTHON) $(SRCDIR)main.py
 

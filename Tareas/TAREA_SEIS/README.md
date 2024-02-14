@@ -1,4 +1,54 @@
 # Tarea 6
+
+
+## Ejecución 
+
+Para correr el programas hay que seguir las siguientes indicaciones:
+
+1. Clonar el repositorio
+
+ ```
+ git clone https://github.com/bryanco03/ie0217.git
+```
+
+2. Ponerse en el directorio Tarea_SEIS
+
+Si estas en Windows
+ ```
+  cd .\ie0217\Tareas\TAREA_SEIS\
+```
+Si estas en linux
+ ```
+  cd ie0217/Tareas/TAREA_SEIS/
+
+```
+---
+
+3. Configurar la API de Kaggle (Instruciones [aqui](https://www.kaggle.com/docs/api))
+
+4. Poner los datos de Username y el key del archivo .json en el archivo de `obtener_datos.py` 
+
+5. Ejecutar el makefile
+
+Si estas en windows
+ ```
+mingw32-make
+```
+si estas en linux
+
+ ```
+make
+```
+4. Disfruta del Programa
+
+
+
+
+
+
+
+
+
 ## Parte Teórica
 ### **Regresión:**
  1. ¿Qué es la regresión lineal y cómo se diferencia de la regresión no lineal?
@@ -124,11 +174,34 @@ Por otro lado una API SOAP (Simple Object Access Protocol) es un tipo de API que
 
  3. Describa los pasos básicos para consumir una API utilizando Python.
 
+Para consumir una API en Python se tienen los siguientes pasos:
+- Importar la biblioteca requests para hacer solicitudes HTTP.
+- Obtener la URL de la API y envías una solicitud usando requests.get().
+- Procesar la respuesta, que generalmente es en formato JSON, utilizando response.json()
 
  
  4. ¿Qué es la autenticación de API y por qué es importante?
+
+ La autenticación de API es el proceso de confirmar la identidad de un usuario o aplicación que intenta acceder a una API.La autenticación por API Key ofrece una seguridad mejorada al requerir una clave única para cada solicitud, protegiendo la API contra ataques no autorizados. Además, permite un control preciso de acceso, lo que permite al propietario limitar y controlar el acceso a diferentes recursos y funcionalidades.[9]
+
+
  5. ¿Cuál es el papel de los verbos HTTP (GET, POST, PUT, DELETE) en las solicitudes
  a una API y HTTP?
+
+- El método GET se utiliza para recuperar información identificada por el URL.
+
+- El método PUT se emplea para solicitar al servidor que almacene el cuerpo de la entidad en una ubicación específica indicada por el URL.
+
+- El método POST se usa para enviar información al servidor, como un archivo de actualización o datos de formulario, cuando se necesita enviar una entidad para un recurso específico.
+
+- El método DELETE se utiliza para solicitar al servidor que elimine un archivo en una ubicación específica identificada por el URL.[10]
+
+
+
+
+
+
+
 
  # Referencias
 
@@ -147,3 +220,7 @@ Por otro lado una API SOAP (Simple Object Access Protocol) es un tipo de API que
 [7] [arqueopterix](https://arqueopterix.es/blog/cual-es-la-diferencia-entre-una-api-y-una-api-rest/)
 
 [8] [appmaster](https://appmaster.io/es/blog/jabon-vs-reposo)
+
+[9] [keepcoding.io](https://keepcoding.io/blog/que-es-la-autenticacion-por-api-key/)
+
+[9] [yosoy.dev](https://yosoy.dev/peticiones-http-get-post-put-delete-etc/)
